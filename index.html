@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AB Life Health Caretaker | ஏபி லைஃப் ஹெல்த் கேர் டேக்கர்</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* BACKGROUND IMAGE SCROLL */
+    .bg-slider {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background:
+        url("Background1.png") repeat-x,
+        url("Background1.png") repeat-x;
+      background-size: auto 100%;
+      animation: scrollBg 40s linear infinite;
+      z-index: -2;
+    }
+
+    @keyframes scrollBg {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* OVERLAY */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.7);
+      z-index: -1;
+    }
+
+    /* CONTENT */
+    .content {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* LOGO */
+    .logo {
+      max-width: 220px;
+      width: 80%;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+      color: #222;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    /* INFO TEXT */
+    .info-text {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .lang-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      margin: 10px;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .lang-btn:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .logo {
+        max-width: 170px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+
+      .info-text {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div class="bg-slider"></div>
+  <div class="overlay"></div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- LOGO -->
+    <img src="AB Logo.png" alt="AB Life Health Caretaker Logo" class="logo">
+
+    <h1>AB Life Health Caretaker</h1>
+    <h2>ஏபி லைஃப் ஹெல்த் கேர்டேக்கர்</h2>
+
+    <!-- INFO TEXT -->
+    <p class="info-text">
+      Choose your language <br>
+      <span style="font-size:16px;">உங்கள் மொழியைத் தேர்வுசெய்யவும்</span>
+    </p>
+
+    <!-- LANGUAGE BUTTONS -->
+    <a class="lang-btn" href="ABlifeEnglish.html">English</a>
+    <a class="lang-btn" href="ABlifeTamil.html">தமிழ்</a>
+
+  </div>
+
+</body>
+</html>

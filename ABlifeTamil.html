@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>ஏபி லைஃப் ஹெல்த் — வீடு மற்றும் நோயாளி பராமரிப்பு</title>
+
+      <!-- Material Symbols Rounded -->
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+      <!-- Poppins font -->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+      <style>
+        :root{
+          --blue:#0069ff; --light-blue:#4265ff; --green:#00bb4c; --purple:#7c5efc; --pink:#ff5e7b;
+          --bg:#e9f5ff; --text:#333;
+        }
+        *{box-sizing:border-box}
+        body{
+          margin:0; font-family:'Poppins', Arial, sans-serif; background:var(--bg); color:var(--text);
+          -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+        }
+
+        /* Header */
+        .header{
+          background:#ffffff; padding:14px 28px; display:flex; align-items:center; justify-content:space-between;
+          box-shadow:0 4px 12px rgba(0,0,0,0.06); position:sticky; top:0; z-index:1200;
+        }
+        .logo{ color:var(--blue); font-weight:800; font-size:26px; text-decoration:none; display:flex; align-items:center; gap:12px; }
+        .logo img{ width:64px; height:auto; border-radius:8px; display:block; }
+        .nav-menu{ display:flex; gap:20px; align-items:center; }
+        .nav-link{ color:var(--text); text-decoration:none; font-weight:600; transition:color .2s; }
+        .nav-link:hover{ color:var(--blue) }
+
+        /* Hero */
+        .hero{ position:relative; width:100%; overflow:hidden; background:linear-gradient(180deg,#ffffff,#f0f7ff) }
+        .hero img{ width:100%; display:block; height:auto; opacity:0.85 }
+        .hero-text{
+          position:absolute; right:6%; top:14%; color:#0a3966; font-weight:900; font-size:40px; text-align:right;
+          text-shadow:2px 2px 12px rgba(255,255,255,0.8); max-width:480px; line-height:1.1; opacity:0;
+          animation:fadeInUp .9s .2s forwards; letter-spacing:-0.5px;
+        }
+
+        /* Layout sections */
+        .section { padding:50px 28px; display:flex; gap:40px; align-items:flex-start; max-width:1300px; margin:0 auto; }
+        .intro-left { flex:1 1 600px; min-width:260px; }
+        .intro-right { flex:0 0 320px; min-width:260px; }
+        .section h1{ margin:0 0 16px; font-size:48px; font-weight:900; line-height:1.15; letter-spacing:-1px; }
+        .highlight-blue{ color:var(--blue) }
+        .highlight-lightblue{ color:var(--light-blue) }
+
+        /* Buttons */
+        .buttons{ margin-top:32px; display:flex; gap:14px; flex-wrap:wrap }
+        .btn{ display:inline-block; padding:14px 28px; border-radius:12px; font-weight:700; text-decoration:none; color:#fff; box-shadow:0 8px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; font-size:15px; }
+        .btn-call{ background:var(--purple) }
+        .btn-wa{ background:var(--green) }
+        .btn:hover{ transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,0.16); }
+        .btn:active{ transform: scale(0.96); opacity:0.85; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+
+        /* Features box */
+        .features-box{ background:linear-gradient(135deg,#ffffff,#fbfdff); border-radius:18px; padding:24px; box-shadow:0 16px 48px rgba(6,24,60,0.08); display:flex; flex-direction:column; gap:12px; border:1px solid rgba(0,105,255,0.08) }
+        .feature{ display:flex; gap:12px; align-items:center; background:linear-gradient(135deg,#e8fff1,#f0fff6); padding:14px; border-radius:12px; font-weight:600; font-size:14px; border-left:3px solid var(--green) }
+        .feature .material-symbols-rounded{ color:var(--blue); font-size:24px; flex-shrink:0 }
+
+        /* Key features diagram */
+        .key-features-container{ background:linear-gradient(135deg,#e8f5ff,#f0faff); border-radius:28px; padding:48px 24px; margin:40px auto; max-width:1100px; box-shadow:0 16px 48px rgba(6,24,60,0.06) }
+        .key-features-diagram{ display:flex; gap:28px; align-items:center; justify-content:space-around; flex-wrap:wrap }
+        .features-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:18px; min-width:240px }
+        .feature-block{ background:linear-gradient(90deg,var(--blue),var(--light-blue)); color:#fff; padding:14px 18px; border-radius:10px; font-weight:700; opacity:0; box-shadow:0 8px 20px rgba(0,105,255,0.2); font-size:14px }
+
+        .center-image-circle{ width:220px; height:220px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 60px rgba(0,105,255,0.15); overflow:hidden; border:18px solid var(--blue) }
+        .center-image-circle img{ width:100%; height:100%; object-fit:cover }
+
+        /* Services */
+        .services-section{ padding:36px 20px; }
+        .service-icons-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:22px; max-width:1100px; margin:18px auto 8px }
+        .service-icon-item{ text-align:center; max-width:120px; font-weight:700 }
+        .icon-box{ width:92px; height:92px; border-radius:20px; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; background:rgba(255,255,255,0.6); box-shadow:0 6px 20px rgba(0,0,0,0.08) }
+        .icon-box .material-symbols-rounded{ font-size:44px }
+
+        /* Service details - About Us style layout */
+        .service-details-container{ background:linear-gradient(135deg, #f8faff 0%, #ffffff 100%); border-radius:24px; padding:50px 40px; max-width:1200px; margin:40px auto; box-shadow:0 20px 60px rgba(0,0,0,0.08); overflow:hidden }
+        .service-detail-block{ display:flex; gap:40px; align-items:stretch; flex-wrap:wrap; margin-bottom:36px; }
+        .service-detail-block:last-child{ margin-bottom:0 }
+        .detail-text{ flex:1 1 500px; display:flex; flex-direction:column; justify-content:center; }
+        /* Clean, modern headings */
+        .service-details-container .detail-text h2 { margin:0 0 16px; font-size:24px; color:var(--blue); font-weight:800; }
+        .service-details-container .detail-text p{ margin:0; color:#555; line-height:1.8; font-size:15px }
+        .detail-image{ flex:0 0 360px; border-radius:18px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#fafcff,#f3f7ff); box-shadow:0 20px 50px rgba(0,100,255,0.15); }
+        .detail-image img{ width:100%; height:100%; object-fit:contain; border-radius:12px; transition: transform .35s ease, filter .25s ease; }
+        .detail-image img:hover{ transform: scale(1.05); filter:brightness(1.02); }
+
+        @media (max-width:700px){ .service-detail-block{ flex-direction:column; text-align:center } .detail-image{ flex:0 0 auto; width:100%; height:280px } }
+
+        /* About / Commitment */
+        .about-us-section{ background:linear-gradient(135deg, #f8faff 0%, #ffffff 100%); border-radius:24px; padding:50px 40px; max-width:1200px; margin:40px auto; box-shadow:0 20px 60px rgba(0,0,0,0.08); overflow:hidden }
+        .about-content-wrapper{ display:flex; gap:40px; align-items:stretch; flex-wrap:wrap }
+        .about-text-column{ flex:1 1 500px; display:flex; flex-direction:column; justify-content:center; }
+        .about-image-column{ flex:0 0 380px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:24px; }
+        .about-image{ width:100%; border-radius:18px; object-fit:cover; box-shadow:0 20px 50px rgba(0,100,255,0.15); transition: all 0.4s ease; }
+        .about-image:hover{ box-shadow:0 30px 70px rgba(0,100,255,0.25); transform: translateY(-5px); }
+        .about-us-section h2{ font-size:38px; color:var(--blue); margin:0 0 24px; font-weight:800; }
+        .about-us-section p.lead-about{ font-size:16px; color:#555; line-height:1.8; margin:0 0 20px; }
+        .about-us-section h3{ font-size:20px; color:var(--blue); margin:28px 0 18px; font-weight:700; }
+        .about-us-section ul{ list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr; gap:14px; }
+        .about-us-section ul li{ background:linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%); padding:16px 18px; border-radius:12px; display:flex; gap:14px; align-items:flex-start; font-weight:600; font-size:15px; transition: all 0.3s ease; border-left:4px solid var(--blue); }
+        .about-us-section ul li:hover{ background:linear-gradient(135deg, #cce0ff 0%, #e0f0ff 100%); transform: translateX(5px); }
+        .about-us-section ul li span.material-symbols-rounded{ color:var(--blue); font-size:24px; flex-shrink:0; }
+
+        .value-proposition-block{ background:var(--purple); color:#fff; padding:18px; border-radius:12px; display:flex; justify-content:space-between; align-items:center; gap:12px }
+
+        /* Contact */
+        .contact-us-page{ padding:48px 20px; max-width:1200px; margin:40px auto; background:linear-gradient(180deg,#f7fbff 0%, #ffffff 100%); border-radius:20px; box-shadow:0 24px 80px rgba(2,6,23,0.06); }
+        .contact-grid{ display:grid; grid-template-columns: 1fr 420px; gap:30px; align-items:start; }
+
+        /* Modern contact form styles (visual only — layout preserved) */
+        .contact-form-container{ background: linear-gradient(180deg,#ffffff,#fbfdff); padding:30px; border-radius:16px; box-shadow:0 18px 50px rgba(15,32,84,0.06); border:1px solid rgba(15,32,84,0.04); }
+        .contact-form-container h3{ margin-top:0; color:var(--purple); font-size:20px; font-weight:800; }
+
+        .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:12px }
+        .form-group{ margin-bottom:14px; position:relative }
+
+        label{ display:block; font-weight:600; margin-bottom:8px; color:#3a4752; font-size:13px }
+
+        input[type="text"], input[type="email"], input[type="tel"], select, textarea{
+          width:100%; padding:14px 16px; font-size:15px; border-radius:12px; border:1px solid rgba(20,40,80,0.08);
+          font-family:inherit; background:linear-gradient(180deg,#fff,#fbfdff); box-shadow:0 6px 20px rgba(16,24,40,0.04);
+          transition: box-shadow .18s ease, border-color .18s ease, transform .08s ease;
+        }
+
+        input::placeholder, textarea::placeholder{ color:#96a0ad }
+
+        input:focus, textarea:focus, select:focus{
+          outline:none; box-shadow: 0 10px 30px rgba(6,105,255,0.10); border-color: rgba(6,105,255,0.8); transform: translateY(-1px);
+        }
+
+        textarea{ min-height:160px; resize:vertical }
+
+        button[type="submit"]{
+          width:100%; padding:14px; border-radius:12px; border:0; background:linear-gradient(90deg,var(--light-blue), var(--blue)); color:#fff; font-weight:800; cursor:pointer;
+          box-shadow:0 12px 40px rgba(10,132,255,0.14); transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+        }
+        button[type="submit"]:hover{ transform: translateY(-3px); box-shadow:0 18px 60px rgba(10,132,255,0.16); }
+        button[type="submit"]:active{ transform: scale(.99); opacity:0.96 }
+
+        /* Keep info/map visuals consistent but slightly refreshed */
+        .info-map-container{ display:flex; flex-direction:column; gap:18px }
+        .contact-info-block{ background:#fff; padding:18px; border-radius:12px; box-shadow:0 12px 36px rgba(2,6,23,0.06) }
+        .contact-item{ display:flex; gap:12px; align-items:flex-start; margin-bottom:12px }
+        .contact-item .material-symbols-rounded{ font-size:26px; color:var(--blue); margin-top:4px }
+        .map-placeholder{ height:300px; border-radius:12px; overflow:hidden; box-shadow:0 14px 40px rgba(2,6,23,0.06) }
+        .map-placeholder iframe{ width:100%; height:100%; border:0; }
+
+        @media (max-width:1000px){ .contact-grid{ grid-template-columns:1fr; } .form-row{ grid-template-columns:1fr } }
+
+        /* Footer */
+        footer.simple-footer-section{ background:#111; color:#fff; padding:18px; text-align:center; margin-top:20px }
+
+        /* Responsive */
+        @media (max-width:1000px){
+          .section{ flex-direction:column; padding:28px 18px }
+          .intro-right{ order:2; width:100% }
+          .intro-left{ order:1; width:100% }
+          .features-box{ width:100% }
+          .hero-text{ font-size:28px; right:6%; top:10% }
+        }
+        @media (max-width:700px){
+          .service-detail-block{ flex-direction:column; text-align:center }
+          .about-content-wrapper{ flex-direction:column-reverse; align-items:center }
+          .about-image-column{ width:100% }
+          .about-text-column{ width:100% }
+          .about-us-section ul{ grid-template-columns:1fr }
+          .contact-grid{ flex-direction:column }
+        }
+
+        /* animations */
+        @keyframes fadeInUp{ from{ opacity:0; transform: translateY(10px) } to{ opacity:1; transform: translateY(0) } }
+        @keyframes popUp{ 0%{ transform: scale(1); } 50%{ transform: scale(1.15); } 100%{ transform: scale(1); } }
+        @keyframes colorDisappear{ 0%{ background-color: inherit; opacity:1; } 100%{ background-color: rgba(255,255,255,0.1); opacity:0.3; } }
+        @keyframes card3D{ 0%{ transform: rotateX(0deg) rotateY(0deg) translateZ(0); } 100%{ transform: rotateX(-5deg) rotateY(5deg) translateZ(20px); } }
+        @keyframes float{ 0%, 100%{ transform: translateY(0px); } 50%{ transform: translateY(-12px); } }
+        
+        /* Pricing cards 3D */
+        .care-packages-section{ padding:60px 28px; perspective: 1200px; }
+        .package-cards{ display:flex; gap:28px; justify-content:center; flex-wrap:wrap; }
+        .radial-card-container{ width:300px; background:linear-gradient(135deg, #ffffff 0%, #fbfdff 100%); padding:32px 24px; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.08); border:1px solid rgba(0,105,255,0.06); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden; }
+        .radial-card-container::before{ content:''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.5s ease; }
+        .radial-card-container:hover{ transform: translateY(-16px) rotateX(-8deg) rotateY(4deg); box-shadow: 0 40px 100px rgba(0,105,255,0.15), 0 0 60px rgba(0,105,255,0.08); border-color: rgba(0,105,255,0.15); }
+        .radial-card-container h4{ margin: 16px 0 18px; font-size: 18px; font-weight: 700; transition: all 0.3s ease; }
+        .radial-card-container:hover h4{ transform: scale(1.05); }
+        
+        .circle-content{ width:130px; height:130px; border-radius:50%; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; position: relative; transition: all 0.5s ease; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .radial-card-container:hover .circle-content{ transform: scale(1.12) rotateZ(8deg); box-shadow: 0 25px 60px rgba(0,0,0,0.2); }
+        
+        .radial-card-container ul{ list-style:none; padding:0; margin:12px 0 24px; }
+        .radial-card-container ul li{ padding:10px 0; font-size: 14px; color: #555; font-weight: 500; transition: all 0.3s ease; padding-left: 8px; }
+        .radial-card-container ul li:before{ content: '✓'; color: var(--green); font-weight: 800; margin-right: 10px; }
+        .radial-card-container:hover ul li{ transform: translateX(6px); }
+        
+        .radial-card-container .btn{ width: 100%; margin: 0 !important; padding: 14px 16px !important; border-radius: 12px; font-size: 14px; font-weight: 700; transition: all 0.3s ease; text-align: center; }
+        .radial-card-container .btn:hover{ transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.18) !important; }
+        .feature-block.animate-in{ animation:fadeInUp .8s forwards }
+        .about-us-section.fade-in{ animation:fadeInUp .9s .2s forwards; opacity:0 }
+        .service-icon-item{ transition: transform 0.25s ease, box-shadow 0.25s ease; cursor:pointer; transform-style:preserve-3d; }
+        .service-icon-item .icon-box{ transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s ease; }
+        .service-icon-item:hover, .service-icon-item:focus, .service-icon-item:active{ transform: translateY(-6px) scale(1.02); }
+        .service-icon-item:hover .icon-box, .service-icon-item:focus .icon-box{ transform: translateY(-4px) scale(1.06); box-shadow: 0 14px 34px rgba(0,0,0,0.18); }
+        .btn:active{ animation: colorDisappear 0.6s ease forwards; }
+
+        /* Button variants used in body */
+        .btn-wa { background:#25d366; box-shadow:0 4px 12px rgba(37,211,102,0.4); }
+        .btn-call { background:#0a84ff; }
+
+        /* Icon colors */
+        .service-icon-item:nth-child(1) .material-symbols-rounded { color: #ff6b6b; }
+        .service-icon-item:nth-child(2) .material-symbols-rounded { color: #ff8c42; }
+        .service-icon-item:nth-child(3) .material-symbols-rounded { color: #f5c400; }
+        .service-icon-item:nth-child(4) .material-symbols-rounded { color: #4caf50; }
+        .service-icon-item:nth-child(5) .material-symbols-rounded { color: #1e90ff; }
+        .service-icon-item:nth-child(6) .material-symbols-rounded { color: #8a2be2; }
+        .service-icon-item:nth-child(7) .material-symbols-rounded { color: #ff1493; }
+
+        /* Star rating */
+        .star-rating input { display: none; }
+        .star-rating label { font-size:28px; color:#ffffff66; cursor:pointer; transition: color 0.2s; }
+        .star-rating label:hover, .star-rating label:hover ~ label { color:#fff; }
+        .star-rating input:checked ~ label { color:#fff; }
+
+        /* ===============================
+   RIGHT TO LEFT NEWS TICKER
+   =============================== */
+.news-ticker-rtl{
+  width:100%;
+  background:linear-gradient(90deg,#ffffff,#ffffff);
+  color:#4f0065;
+  overflow:hidden;
+  white-space:nowrap;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  position:relative;
+  z-index:1100;
+}
+
+.news-track{
+  display:inline-block;
+  padding:10px 0;
+  font-weight:700;
+  font-size:15px;
+  animation: tickerRTL 22s linear infinite;
+}
+
+/* Pause on hover */
+.news-ticker-rtl:hover .news-track{
+  animation-play-state:paused;
+}
+
+/* RTL Animation */
+@keyframes tickerRTL{
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Mobile size */
+@media (max-width:600px){
+  .news-track{
+    font-size:13px;
+  }
+}
+
+
+.lang-switch{
+  display: flex;
+  gap: 6px;
+  margin-left: 16px;
+}
+
+.lang-switch a{
+  background: #0a6cff;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.lang-switch a:hover{
+  background: #084fc7;
+}
+
+.lang-switch a.active{
+  background: #333;
+}
+
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Logo example</title>
+  <style>
+    /* Container: aligns image and text */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem; /* space between image and text */
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Logo image sizing (adjust as needed) */
+    #site-logo {
+      width: 48px;   /* change to fit your layout */
+      height: auto;
+      display: block;
+    }
+
+    /* Slightly reduced logo text for Tamil label */
+    .logo .logo-text {
+      font-size: 0.95rem; /* change to 0.9rem or 14px if you want it smaller */
+      line-height: 1;
+      font-weight: 600;
+      font-family: "Noto Sans Tamil", "Latha", "Arial", sans-serif;
+      white-space: nowrap;
+    }
+
+    /* Responsive: reduce text more on very small screens */
+    @media (max-width: 480px) {
+      .logo .logo-text {
+        font-size: 0.85rem;
+      }
+      #site-logo {
+        width: 40px;
+      }
+    }
+
+
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Navigation (reduced font)</title>
+  <style>
+    /* Navigation container */
+    .nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.5rem 1rem;
+    }
+
+    /* Reduced link size — change the value to taste (0.9rem ≈ 14.4px) */
+    .nav-link {
+      font-size: 0.9rem;            /* reduce this to 0.85rem or 14px if needed */
+      line-height: 1.2;
+      text-decoration: none;
+      color: #222;
+      font-weight: 500;
+      font-family: "Noto Sans Tamil", "Latha", "Arial", sans-serif;
+      white-space: nowrap;
+      padding: 0.25rem 0.25rem;
+      display: inline-block;
+    }
+
+    /* Hover/focus affordance */
+    .nav-link:hover,
+    .nav-link:focus {
+      color: #0073e6;
+      outline: none;
+      text-decoration: underline;
+    }
+
+    /* Responsive: slightly smaller on narrow screens */
+    @media (max-width: 480px) {
+      .nav-link { font-size: 0.85rem; }
+    } 
+
+
+    /* =========================
+   MOBILE RESPONSIVE FIXES
+   ========================= */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .logo img {
+    height: 48px !important;
+  }
+
+  /* HERO SECTION */
+  .hero-text {
+    position: static !important;
+    margin: 16px auto 0;
+    text-align: center !important;
+    font-size: 22px !important;
+    line-height: 1.3;
+    padding: 0 12px;
+  }
+
+  .hero img {
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* INTRO SECTION */
+  .section {
+    flex-direction: column;
+    padding: 24px 16px;
+    gap: 24px;
+  }
+
+  .intro-left h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  /* RATING BOX */
+  aside {
+    width: 100% !important;
+  }
+
+  /* FEATURES BOX */
+  .features-box {
+    width: 100%;
+  }
+
+  /* KEY FEATURES */
+  .key-features-diagram {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .center-image-circle {
+    width: 180px;
+    height: 180px;
+    border-width: 12px;
+  }
+
+  /* SERVICES ICON GRID */
+  .service-icons-grid {
+    gap: 16px;
+  }
+
+  .service-icon-item {
+    max-width: 45%;
+  }
+
+  /* SERVICE DETAILS */
+  .service-detail-block {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .detail-image {
+    width: 100%;
+    height: 220px;
+  }
+
+  /* PRICING CARDS */
+  .radial-card-container {
+    width: 100% !important;
+    max-width: 340px;
+  }
+
+  /* CAREERS SECTION */
+  #careers > div {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CONTACT SECTION */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* MAP */
+  .map-placeholder {
+    height: 220px;
+  }
+
+  /* FOOTER */
+  footer.footer {
+    padding: 30px 16px;
+    text-align: center;
+  }
+
+}
+
+/* ===== BURGER BUTTON ===== */
+.burger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #0069ff;
+}
+
+/* ===== MOBILE MENU WITH SMOOTH ANIMATION ===== */
+@media (max-width: 768px) {
+
+  .header {
+    position: relative;
+  }
+
+  .burger-btn {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    z-index: 3000;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 64px;
+    right: 16px;
+    width: 240px;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 12px 0;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+
+    /* animation magic */
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+    pointer-events: none;
+    transition: all 0.35s ease;
+  }
+
+  .nav-menu.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    padding: 12px 18px;
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .nav-link:hover {
+    background: #f3f7ff;
+  }
+
+  .lang-switch {
+    justify-content: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+}
+  
+/* ===== REMOVE WHITE FOG / GLASS EFFECT ===== */
+
+/* Hero container */
+.hero{
+  background: transparent !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Hero image – keep it crystal clear */
+.hero img{
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* If any overlay or fog layer exists */
+.hero::before,
+.hero::after{
+  content: none !important;
+  display: none !important;
+}
+
+/* Hero text container – no fog */
+.hero-text{
+  background: transparent !important;
+  backdrop-filter: none !important;
+  filter: none !important;
+}
+
+/* existing CSS */
+
+    .container {
+      display: flex;
+      flex-direction: column; /* mobile view */
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row; /* desktop view */
+      }
+    }
+
+</style>
+</head>
+
+<body id="top">
+
+      <header class="header">
+        <a class="logo" href="#top">
+  <img
+    id="site-logo"
+    src="AB Logo.png"
+    alt="AB Life Health logo"
+    style="height:60px; width:auto;"
+  >
+  <span class="logo-text" style="font-size:1.1rem;">
+    ஏபி லைஃப் ஹெல்த் கேர்டேக்கர்
+  </span>
+</a>
+<button class="burger-btn" aria-label="Open menu">&#9776;</button>
+<nav class="nav-menu" aria-label="Main navigation">
+
+
+  <a class="nav-link" href="#services-page">சேவைகள்</a>
+  <a class="nav-link" href="#careers">வேலைவாய்ப்பு</a>
+  <a class="nav-link" href="#about-us">எங்களைப் பற்றி</a>
+  <a class="nav-link" href="#contact-us-page">தொடர்புக்கு</a>
+<div class="lang-switch">
+  
+  <a href="ABlifeTamil.html">தமிழ்</a>
+  <a href="ABlifeEnglish.html">English</a>
+</div>
+</nav>
+ </header>
+
+<!-- RIGHT TO LEFT NEWS TICKER -->
+<div class="news-ticker-rtl">
+  <div class="news-track">
+    நாங்கள் பயிற்சி பெற்ற பராமரிப்பாளர்களை பணியில் ஏற்றுக்கொள்கிறோம்! &nbsp;&nbsp;|&nbsp;&nbsp;
+    24/7 நோயாளர் பராமரிப்பு மற்றும் ஆதரவு! &nbsp;&nbsp;|&nbsp;&nbsp;
+    நியாயமான கட்டணத்தில், உங்கள் தேவைகளுக்கு ஏற்ற நிபுணத்துவமான சுகாதார உதவியை நாங்கள் வழங்குகிறோம்.
+  </div>
+</div>
+
+      <main>
+        <div class="hero" role="banner" style="position:relative;">
+
+  <img src="Figure1.png" alt="வீட்டு நோயாளர் பராமரிப்பு காட்சி">
+
+  <!-- Top-right text + logo -->
+  <div style="position:absolute; top:20px; right:20px; text-align:center; color:#0A1A7A; font-size:14px; line-height:1.4;">
+
+      <div style="font-weight:bold;">பதிவு எண்: UDYAM-TN-29-0000100</div>
+
+      <div style="margin-top:5px; font-weight:normal;">பதிவு செய்யப்பட்டவை</div>
+
+      <img src="tnhsps logo.png" alt="TNHSPS லோகோ" style="width:120px; margin-top:5px; display:block; margin-left:auto; margin-right:auto;">
+
+      <div style="margin-top:5px; white-space: nowrap; font-weight:bold;">
+        தமிழ் நாடு சுகாதார & நலத்துறை <br>சேவை வழங்குநர்கள் சங்கம் (TNHSPS)
+      </div>
+
+  </div>
+
+  <!-- Your hero text -->
+  <div class="hero-text" style="margin-top:155px; font-size:30px;">
+    <span>சிறிய</span> <span>கவன</span> <span>செயல்கள்</span>
+    <span>உருவாக்குகின்றன</span> <br>
+    <span>பெரிய</span> <span>நிமிடங்களை</span><br>
+    <span>ஆறுதலின்</span>
+</div>
+</div>
+
+
+   <section class="section" aria-labelledby="intro-heading">
+   <div class="intro-left">
+   <h1 id="intro-heading">உங்கள் நம்பிக்கைக்குரிய<br>
+              <span class="highlight-blue">வீட்டு பராமரிப்பு</span> மற்றும்<br>
+              <span class="highlight-lightblue">நோயாளர் பராமரிப்பு</span><br>
+              நிபுணர்கள்
+            </h1>
+
+            <a class="services-link" href="#key-features" style="display:inline-block; margin-top:12px; font-weight:700; color:var(--purple); text-decoration:none;">எங்கள் முக்கிய நன்மைகள் → பார்க்க</a>
+
+            <div class="buttons">
+              <a class="btn btn-wa" href="https://wa.me/+919791402955" target="_blank" rel="noopener noreferrer">WhatsApp us</a>
+              <a class="btn btn-call" href="tel:+919791402955">Call us</a>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:flex-start; gap:30px;">
+            <div class="left-section"></div>
+
+            <aside style="width:260px; padding:25px 20px; border-radius:20px; background:linear-gradient(180deg, #bdefff, #a8c7e6); text-align:center; box-shadow:0 12px 28px rgba(0,0,0,0.18);">
+              <h2 style="font-size:20px; font-weight:600; color:#ffffff; margin-bottom:18px;">Rate your <br>experience</h2>
+
+              <div class="star-rating" style="font-size:26px; margin-bottom:20px; display:flex; justify-content:center; gap:10px; flex-direction: row-reverse;">
+                <input type="radio" id="s5" name="rating" value="5"><label for="s5">&#9733;</label>
+                <input type="radio" id="s4" name="rating" value="4"><label for="s4">&#9733;</label>
+                <input type="radio" id="s3" name="rating" value="3"><label for="s3">&#9733;</label>
+                <input type="radio" id="s2" name="rating" value="2"><label for="s2">&#9733;</label>
+                <input type="radio" id="s1" name="rating" value="1"><label for="s1">&#9733;</label>
+              </div>
+
+              <button id="submitBtn" style="padding:10px 25px; background:white; color:black; border:none; border-radius:25px; font-weight:600; font-size:14px; cursor:pointer; margin-bottom:12px; box-shadow:0 4px 10px rgba(0,0,0,0.20);">Submit Feedback</button>
+
+              <p id="feedbackMsg" style="font-size:12px; color:#ffffff; opacity:0.9; line-height:1.3;">உங்கள் பெயர் பகிரப்படமாட்டாது — எவ்வாறு உங்கள் தரவை கையாள்கிறோம் என்பதை அறியவும்</p>
+            </aside>
+          </div>
+
+          <aside class="intro-right" aria-label="Key features">
+            <div class="features-box" aria-hidden="false">
+              <div class="feature"><span class="material-symbols-rounded">cached</span>நம்பகமான சேவை</div>
+              <div class="feature"><span class="material-symbols-rounded">directions_run</span>இல்லம் நாடி சேவை</div>
+              <div class="feature"><span class="material-symbols-rounded">chat_bubble</span>24/7 மணிநேர ஆதரவு</div>
+              <div class="feature"><span class="material-symbols-rounded">verified_user</span> சான்றளிக்கப்பட்ட பராமரிப்பு, நம்பகமான ஆதரவு</div>
+            </div>
+          </aside>
+        </section>
+
+        <section id="key-features" class="key-features-container" aria-labelledby="features-head">
+          <h2 id="features-head" style="text-align:center; margin:0 0 18px;">ஏபி லைஃப் ஹெல்த் நன்மைகள்</h2>
+          <div class="key-features-diagram">
+            <ul class="features-list left-list" aria-hidden="false">
+              <li class="feature-block">பயிற்சி பெற்ற தொழில்முறை நிபுணர்கள்</li>
+              <li class="feature-block">தனிப்பயன் பராமரிப்பு திட்டங்கள்</li>
+              <li class="feature-block">சேவை மற்றும் நம்பிக்கை</li>
+            </ul>
+
+            <div class="center-image-circle" aria-hidden="true">
+              <img src="Circle stethoscope.png" alt="மருத்துவ சாதனங்கள் மற்றும் மருந்துகள்">
+            </div>
+
+            <ul class="features-list right-list" aria-hidden="false">
+              <li class="feature-block">முன்னேற்றமான அணுகுமுறைகள்</li>
+              <li class="feature-block">24/7 மற்றும் அவசர ஆதரவு</li>
+              <li class="feature-block">உங்கள் குடும்பத்தாருக்கான பராமரிப்பாளர்</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="services-page" class="services-section" aria-labelledby="services-head">
+          <h1 id="services-head" style="text-align:center; margin:0 0 12px; color:#0a84ff;">எங்களின் நம்பகமான சேவைகள்</h1>
+
+          <div class="service-icons-grid" role="list">
+            <div class="service-icon-item" role="listitem">
+              <div class="icon-box"><span class="material-symbols-rounded">elderly</span></div>
+              முதியோர் பராமரிப்பு
+            </div>
+            <div class="service-icon-item" role="listitem">
+              <div class="icon-box"><span class="material-symbols-rounded">child_care</span></div>
+              குழந்தை பராமரிப்பு
+            </div>
+            <div class="service-icon-item" role="listitem">
+              <div class="icon-box"><span class="material-symbols-rounded">dentistry</span></div>
+              பல் பராமரிப்பு
+            </div>
+            <div class="service-icon-item" role="listitem">
+              <div class="icon-box"><span class="material-symbols-rounded">health_and_safety</span></div>
+              நர்சிங் சேவை
+            </div>
+            <div class="service-icon-item" role="listitem">
+              <div class="icon-box"><span class="material-symbols-rounded">emergency</span></div>
+              ஆம்புலன்ஸ்
+            </div>
+            <div class="service-icon-item" role="listitem">
+              <div class="icon-box"><span class="material-symbols-rounded">vaccines</span></div>
+              மருந்தகம்
+            </div>
+            <div class="service-icon-item" role="listitem">
+              <div class="icon-box"><span class="material-symbols-rounded">wheelchair_pickup</span></div>
+              மருத்துவ உபகரணங்கள்
+            </div>
+          </div>
+          <div class="service-details-container" aria-hidden="false">
+            <div class="service-detail-block">
+              <div class="detail-text blue-accent">
+                <h2>குழந்தை பராமரிப்பு</h2>
+                <p>நாங்கள் பாதுகாப்பான, பராமரிப்பு மையமுள்ள மற்றும் நலத்தை முன்னிறுத்தும் குழந்தை பராமரிப்பை வழங்குகிறோம், இது ஒவ்வொரு குழந்தையின் ஆரோக்கிய வளர்ச்சியை ஆதரிக்கிறது. பயிற்சி பெற்ற பராமரிப்பாளர் குழு தினசரி நடவடிக்கைகளை உதவி செய்து, வயதுக்கு ஏற்ப செயல்பாடுகள் மூலம் கற்றலை ஊக்குவிக்கிறது. ஒவ்வொரு குழந்தையும் பாதுகாப்பாகவும் மதிக்கப்பட்டதாகவும் உணரும் வகையில், சமூக மற்றும் அறிவியல் திறன்களை வளர்க்கும் கற்றல் அனுபவங்களை நாங்கள் வழங்குகிறோம்.</p>
+              </div>
+              <div class="detail-image"><img src="Figure2.png" alt="குழந்தை பராமரிப்பாளர்"></div>
+            </div>
+
+            <div class="service-detail-block">
+              <div class="detail-text">
+                <h2>நர்சிங் சேவை</h2>
+                <p>நாங்கள் ஒவ்வொரு நோயாளியின் மருத்துவ, உணர்ச்சி மற்றும் அன்றாட தேவைகளுக்கு ஏற்ப வடிவமைக்கப்பட்ட நிபுணத்துவமிக்க, பரிவுள்ள நர்சிங் பராமரிப்பை வழங்குகிறோம். எங்கள் திறமையான நர்சிங் குழு நோயாளி மையம் கொண்ட ஆதரவை வழங்கி, வசதி மற்றும் மேம்பாட்டை ஊக்குவிக்கிறது. முதிர்ந்தோர் மற்றும் குறிப்பிட்ட உடல்நிலைகள் கொண்டவர்களுக்கு பாதுகாப்பு, இயக்க உதவி, மருந்து நிர்வாகம் மற்றும் ஒட்டுமொத்த நலத்தை பேணும் சிறப்பு பராமரிப்பு திட்டங்களை நாங்கள் வழங்குகிறோம்.</p>
+              </div>
+              <div class="detail-image"><img src="Figure3.png" alt="வீட்டில் நர்சிங்"></div>
+            </div>
+
+            <div class="service-detail-block">
+              <div class="detail-text blue-accent">
+                <h2>முதியோர் பராமரிப்பு</h2>
+                <p>நாங்கள் முதியோருக்கு பாதுகாப்பும் மதிப்பும் வழங்கும் பரிவுள்ள, நம்பகமான வீட்டு பராமரிப்பை வழங்குகிறோம். தனிப்பட்ட தேவைகளுக்கு ஏற்ப வடிவமைக்கப்பட்ட எங்கள் சேவைகள் சுயாதீனத்தை ஊக்குவிக்கின்றன. பயிற்சி பெற்ற பராமரிப்பாளர்கள் தினசரி நடவடிக்கைகள், தனிப்பட்ட பராமரிப்பு, உணவு தயாரிப்பு மற்றும் வீட்டு பராமரிப்பில் உதவி செய்து, மருந்து நினைவூட்டல்கள், அடிப்படை ஆரோக்கிய கண்காணிப்பு மற்றும் இயக்க உதவியின் மூலம் நலத்தை மேம்படுத்துகின்றனர்.</p>
+              </div>
+              <div class="detail-image"><img src="Figure4.png" alt="முதியோர் பராமரிப்பு"></div>
+            </div>
+
+            <div class="service-detail-block">
+              <div class="detail-text">
+                <h2>பல் பராமரிப்பு</h2>
+                <p>எங்கள் பல் பராமரிப்பு பயண ஆதரவு சேவைகள், ஒவ்வொரு சந்திப்பும் எளிதாகவும், சுகாதாரமாகவும் நடக்க உதவுகிறது. பயிற்சி பெற்ற பராமரிப்பாளர்கள், சந்திப்பு திட்டமிடுதல் முதல் பின் பராமரிப்பு வரை முழு ஆதரவை வழங்குகிறார்கள்.  
+
+பயணத்தின் போது, நோயாளிகளுக்கு இயக்கம், தொடர்பு, சுகாதாரம் மற்றும் உணர்ச்சி உறுதி ஆகியவற்றில் எப்போதும் உதவி வழங்கப்படுகிறது. சந்திப்புக்குப் பிறகு, மீட்டெடுப்பு கண்காணிப்பு, மருந்து நினைவூட்டல்கள் மற்றும் பல் பராமரிப்பு வழிமுறைகள் வழங்கப்படுகின்றன.</p>
+              </div>
+              <div class="detail-image"><img src="Figure5.png" alt="பல் பராமரிப்பு ஆதரவு"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="care-packages-section" aria-labelledby="pricing-head">
+          <h2 id="pricing-head" style="text-align:center; margin-bottom:18px; color:var(--purple)">பராமரிப்பு திட்டங்களின் பட்டியல்</h2>
+          <div class="package-cards" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap">
+            <div class="radial-card-container essential" style="width:300px; background:#ffffff; padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.06)">
+              <div class="circle-content" style="width:130px; height:130px; border-radius:50%; margin:10px auto; background:linear-gradient(45deg,#ff9800,#ffc107); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800"><div style="text-align:center"><div style="font-size:12px">அத்தியாவசிய பராமரிப்பு</div><div style="font-size:22px">2 மணி</div></div></div>
+              <h4 style="color:var(--blue); text-align:center">குறுகிய கால சேவை</h4>
+              <ul style="list-style:none; padding:0; margin:6px 0 12px"><li style="padding:6px 0">அடிப்படை தனிப்பட்ட பராமரிப்பு</li><li style="padding:6px 0">மருந்து நினைவூட்டல்கள்</li><li style="padding:6px 0">உணவு தயாரிப்பில் உதவி</li><li style="padding:6px 0">ஒளி சுத்தம் பராமரிப்பு</li></ul>
+              <a class="btn" href="#contact-us-page" style="background:#ff9800; display:block; text-align:center; width:85%; margin:8px auto">தொடர்பு கொள்ள</a>
+            </div>
+
+            <div class="radial-card-container daily" style="width:300px; background:#fff; padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.06)">
+              <div class="circle-content" style="width:130px; height:130px; border-radius:50%; margin:10px auto; background:linear-gradient(45deg,#673ab7,#9c27b0); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800"><div style="text-align:center"><div style="font-size:12px">தினசரி பராமரிப்பு</div><div style="font-size:22px">10 மணி</div></div></div>
+              <h4 style="color:var(--blue); text-align:center">தினசரி பராமரிப்பு சேவை</h4>
+              <ul style="list-style:none; padding:0; margin:6px 0 12px"><li style="padding:6px 0">அனைத்து அத்தியாவசிய சேவைகள்</li><li style="padding:6px 0">கண்காணிப்பு மற்றும் வழிகாட்டல்</li><li style="padding:6px 0">செயல்திறன் மற்றும் உடற்பயிற்சி ஆதரவு</li><li style="padding:6px 0">உணவுத் திட்ட உதவி</li></ul>
+              <a class="btn" href="#contact-us-page" style="background:#673ab7; display:block; text-align:center; width:85%; margin:8px auto">தொடர்பு கொள்ள</a>
+            </div>
+
+            <div class="radial-card-container premium" style="width:300px; background:#fff; padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.06)">
+              <div class="circle-content" style="width:130px; height:130px; border-radius:50%; margin:10px auto; background:linear-gradient(45deg,#f44336,#e91e63); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800"><div style="text-align:center"><div style="font-size:12px">பிரீமியம் பராமரிப்பு</div><div style="font-size:22px">10 மணி</div></div></div>
+              <h4 style="color:var(--blue); text-align:center">முழு நேர பராமரிப்பு சேவை</h4>
+              <ul style="list-style:none; padding:0; margin:6px 0 12px"><li style="padding:6px 0">முழு தனிப்பட்ட சுகாதார பராமரிப்பு</li><li style="padding:6px 0">மேம்பட்ட மருத்துவ கண்காணிப்பு (தேவைப்பட்டால்)</li><li style="padding:6px 0">டைப்பர் மாற்றுதல்</li></ul>
+              <a class="btn" href="#contact-us-page" style="background:#f44336; display:block; text-align:center; width:85%; margin:8px auto">தொடர்பு கொள்ள</a>
+            </div>
+          </div>
+        </section>
+<section class="contact-details-section" style="text-align:center; padding:30px 0; margin-top:30px; background-color:#f8f9fa;">
+    <h3 style="color:#4a148c; margin-bottom:15px; font-size:22px;">நேரடியாக எங்களை தொடர்பு கொள்ளவும்</h3>
+    <p style="color:#555; margin-bottom:20px; font-size:16px;">
+        உடனடி உதவிக்கு அல்லது விரிவான விசாரணைகளுக்கு, எங்களை தொடர்பு கொள்ளவும்.
+    </p>
+    <div class="contact-methods" style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
+        
+        <div class="contact-method-item" style="display:flex; align-items:center; font-size:18px;">
+            <span style="color:#007bff; margin-right:10px; font-size:24px;">&#9742;</span> 
+            <a href="tel:+919791402955" style="color:#007bff; text-decoration:none; font-weight:600;">+919791402955 |  +917708750619</a>
+        </div>
+        
+        <div class="contact-method-item" style="display:flex; align-items:center; font-size:18px;">
+            <span style="color:#007bff; margin-right:10px; font-size:24px;">&#9993;</span> 
+            <a href="mailto:ablifehealthcaretaker@gmail.com" style="color:#007bff; text-decoration:none; font-weight:600;">ablifehealthcaretaker@gmail.com</a>
+        </div>
+        
+    </div>
+</section>
+
+
+<!-- CAREERS SECTION -->
+<section id="careers" class="about-us-section" aria-labelledby="careers-head" style="padding:40px 28px; margin:40px auto; max-width:1200px;">
+ <h2 id="careers-head"
+    style="font-size:32px; color:var(--blue); margin:0 0 18px; font-weight:800; text-align:center;">எங்களுடன் இணைந்துப் பணியாற்றும் வாய்ப்பை வழங்குகிறோம்</h2>
+
+
+  <p style="color:#555; margin:8px 0 22px; line-height:1.7; font-size:15px;">
+    பரிவுள்ள வீட்டில் பராமரிப்பு சேவைகளை வழங்கி, அர்த்தமுள்ள தொழில்முனையை உருவாக்குங்கள். நாங்கள் பயிற்சி, நம்பகமான நேர நிரல்கள் மற்றும் ஆதரவு சூழலை வழங்குகிறோம், நீங்கள் முக்கியமானதை — மக்களுக்கு பராமரிப்பை கவனிக்க — கவனம் செலுத்தலாம்.
+  </p>
+
+  <div style="display:grid; grid-template-columns: 1fr 420px; gap:28px; align-items:start;">
+    <div>
+      <!-- Benefits grid -->
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:14px; margin-bottom:20px;">
+        <div class="features-box" style="padding:16px; border-radius:12px;">
+          <strong style="display:block; margin-bottom:8px;">போட்டி திறன் சம்பளம்</strong>
+          <div style="color:#555; font-size:14px;">நியாயமான சம்பளம், காலாண்டு மதிப்பீடுகள் மற்றும் நலத்தொகைகள்.</div>
+        </div>
+
+        <div class="features-box" style="padding:16px; border-radius:12px;">
+          <strong style="display:block; margin-bottom:8px;">நெகிழ்வான நேரங்கள்</strong>
+          <div style="color:#555; font-size:14px;">பகுதி நேரம், முழு நேரம், குறுகிய கால மற்றும் வாழும் வாய்ப்புகள்.</div>
+        </div>
+
+        <div class="features-box" style="padding:16px; border-radius:12px;">
+          <strong style="display:block; margin-bottom:8px;">பயிற்சி & சான்றிதழ்</strong>
+          <div style="color:#555; font-size:14px;">ஆரம்ப பயிற்சி, முதலுதவி மற்றும் தொடர்ச்சியான திறன் மேம்பாடு.</div>
+        </div>
+
+        <div class="features-box" style="padding:16px; border-radius:12px;">
+          <strong style="display:block; margin-bottom:8px;">பாதுகாப்பான & ஆதரவு சூழல்</strong>
+          <div style="color:#555; font-size:14px;">24/7 ஊழியர் ஆதரவு, பின்னணி சரிபார்க்கப்பட்ட வாடிக்கையாளர்கள், மரியாதையான பணிகள்.</div>
+        </div>
+        <div class="features-box" style="padding:16px; border-radius:12px;">
+          <strong style="display:block; margin-bottom:8px;">சான்றிதழ் பெறுவதற்கான உதவி</strong>
+          <div style="color:#555; font-size:14px;">உங்கள் திறமைகளை மேம்படுத்தவும், உங்கள் சுகாதாரப் பணி வாழ்க்கையில் முன்னேறவும் தேவையான சான்றிதழ்களைப் பெறுவதில் நாங்கள் உங்களுக்கு ஆதரவளிக்கிறோம்.</div>
+        </div>
+        <div class="features-box" style="padding:16px; border-radius:12px;">
+          <strong style="display:block; margin-bottom:8px;">சுகாதாரத் துறையில் தொழில் வளர்ச்சி</strong>
+          <div style="color:#555; font-size:14px;">சுகாதாரத் துறையில் கற்றுக்கொள்வதற்கும், வளர்வதற்கும், ஒரு திருப்திகரமான தொழிலை உருவாக்குவதற்கும் அர்த்தமுள்ள வாய்ப்புகளைக் கண்டறியுங்கள்.</div>
+        </div>
+      </div>
+      
+      
+
+      <div style="text-align:center; margin:30px 0;">
+        <img src="Figure6.png" alt="முதியோருடன் பராமரிப்பாளர் நடக்கும்" style="max-width:100%; height:auto; border-radius:12px;">
+      </div>
+
+      <!-- Open roles -->
+      <h3 style="color:var(--blue); margin:16px 0 8px; font-size:20px;">வேலை விவரங்கள்</h3>
+      <ul style="list-style:none; padding:0; margin:0 0 18px; display:grid; gap:8px;">
+        <li style="background:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); font-weight:700;">முதியோர் பராமரிப்பாளர்</li>
+        <li style="background:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); font-weight:700;">வீட்டு பராமரிப்பாளர் / நோயாளி கவனிப்பாளர்</li>
+        <li style="background:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); font-weight:700;">குழந்தை பராமரிப்பாளர் / நானி</li>
+        <li style="background:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); font-weight:700;">நர்சிங் உதவியாளர்</li>
+        <li style="background:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); font-weight:700;">சிறப்புத் தேவைகள் கொண்டவர்களுக்கான பராமரிப்பாளர்</li>
+      <li style="background:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); font-weight:700;">சமையல் வேலை</li>
+      </ul>
+
+      <h3 style="color:var(--blue); margin:8px 0 8px; font-size:18px;">பொதுவான பொறுப்புகள்</h3>
+      <p style="color:#555; margin:0 0 18px; line-height:1.6; font-size:14px;">
+        தனிப்பட்ட பராமரிப்பில் உதவுதல் (குளியல், உடை அணிதல்), இயக்க ஆதரவு, மருந்து நினைவூட்டல்கள், உணவு தயாரிப்பு, ஒளி சுத்தம் பராமரிப்பு மற்றும் பரிவுள்ள தோழமை வழங்குதல்.
+      </p>
+    </div>
+
+    <aside style="background:linear-gradient(180deg,#ffffff,#fbfdff); padding:20px; border-radius:12px; box-shadow:0 16px 40px rgba(2,6,23,0.06);">
+      <h3 style="margin:0 0 12px; color:var(--purple); font-size:18px;">இப்போவே விண்ணப்பிக்கவும்</h3>
+
+      <form id="careersForm" action="https://formsubmit.co/ablifehealthcaretaker@gmail.com" method="POST" enctype="multipart/form-data" style="display:grid; gap:10px;">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="புதிய தொழில் விண்ணப்பம்">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://ablifehealth.com/thank-you.html">
+
+        <label style="font-weight:700; font-size:13px;">முழுப் பெயர்<input name="name" type="text" required placeholder="உங்கள் முழுப் பெயர்" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
+
+        <label style="font-weight:700; font-size:13px;">தொலைபேசி<input name="phone" type="tel" required placeholder="+91 9XXXXXXXXX" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
+
+        <label style="font-weight:700; font-size:13px;">மின்னஞ்சல்<input name="email" type="email" required placeholder="you@example.com" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
+
+        <label style="font-weight:700; font-size:13px;">விண்ணப்பிக்கும் நிலை
+          <select name="position" required style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);">
+            <option value="">ஒரு வேலையைத் தேர்ந்தெடுக்கவும்</option>
+            <option>முதியோர் பராமரிப்பாளர்</option>
+            <option>வீட்டு பராமரிப்பாளர்</option>
+            <option>குழந்தை பராமரிப்பாளர்</option>
+            <option>நர்சிங் உதவியாளர்</option>
+            <option>பல் மருத்துவப் பராமரிப்பு வருகைக்கான ஆதரவு</option>
+            <option>மற்றவை</option>
+          </select>
+        </label>
+
+        <label style="font-weight:700; font-size:13px;">முன்னுரிமை நேரம்
+          <select name="shift" required style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);">
+            <option value="">ஒரு நேரத்தைத் தேர்ந்தெடுக்கவும்</option>
+            <option>பகல்</option>
+            <option>இரவு</option>
+            <option>24 மணி / வாழும்</option>
+            <option>நெகிழ்வான / பகுதி நேரம்</option>
+          </select>
+        </label>
+
+        <label style="font-weight:700; font-size:13px;">அனுபவம் (ஆண்டுகள்)<input name="experience" type="text" placeholder="எ.கா., 2 ஆண்டுகள்" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
+
+        <label style="font-weight:700; font-size:13px;">Resume / ID பதிவேற்றம் (விருப்பமானது)
+          <input name="file" type="file" accept=".pdf,.doc,.docx,.jpg,.png" style="width:100%; padding:8px 6px; border-radius:8px; border:1px solid rgba(20,40,80,0.06);">
+        </label>
+
+        <label style="font-weight:700; font-size:13px;">செய்தி / குறிப்புகள்<textarea name="message" placeholder="உங்கள் கிடைக்கும் நேரம் மற்றும் திறன்கள் பற்றி கூறுங்கள்..." style="width:100%; padding:10px 12px; border-radius:10px; min-height:90px; border:1px solid rgba(20,40,80,0.08);"></textarea></label>
+
+        <button type="submit" style="width:100%; padding:12px; border-radius:12px; border:0; background:linear-gradient(90deg,var(--light-blue),var(--blue)); color:#fff; font-weight:800; cursor:pointer;">விண்ணப்பிக்கவும்</button>
+      </form>
+     <!-- RECRUITMENT FORM SECTION (Download Only) -->
+<section id="recruitment-form" style="max-width:800px; margin:40px auto; padding:28px; border-radius:12px; background:#ffffff; box-shadow:0 12px 36px rgba(2,6,23,0.06);">
+
+  <h2 style="color:var(--blue); margin:0 0 10px; font-size:28px; font-weight:800;">
+    ஆட்சேர்ப்பு படிவம்
+  </h2>
+
+  <p style="color:#555; margin:0 0 20px; line-height:1.6; font-size:15px;">
+    தயவுசெய்து அதிகாரப்பூர்வ ஆட்சேர்ப்புப் படிவத்தைப் பதிவிறக்கம் செய்து, அதை கவனமாகப் பூர்த்தி செய்து, எங்கள் மனிதவளக் குழுவிற்கு மின்னஞ்சல் அல்லது வாட்ஸ்அப் வழியாகச் சமர்ப்பிக்கவும்.
+  </p>
+
+  <!-- DOWNLOAD BOX -->
+  <div style="text-align:center; padding:24px; border-radius:12px; background:linear-gradient(180deg,#f8fbff,#ffffff); box-shadow:0 8px 26px rgba(0,0,0,0.05);">
+
+    <a href="ABlifehealth Recruitment Form.pdf" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       style="display:inline-block; padding:14px 22px; background:var(--light-blue); color:white; font-size:16px; font-weight:700; border-radius:12px; text-decoration:none; box-shadow:0 8px 24px rgba(6,105,255,0.18);">
+      Download Recruitment Form (PDF)
+    </a>
+
+    <p style="margin-top:12px; color:#666; font-size:14px;">
+      File: ABlifehealth Recruitment Form.pdf
+    </p>
+  </div> 
+</section>
+
+
+      <div style="margin-top:14px; font-size:13px; color:#555;">
+        <strong>Contact HR:</strong><br>
+        <a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700;">+9197914 02955</a><br>
+        <a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700;">+917708750619</a><br>
+        <a href="mailto:ablifehealthcaretaker@gmail.com" style="color:var(--blue); text-decoration:none; font-weight:700;">ablifehealthcaretaker@gmail.com</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+
+<!-- ABOUT US SECTION -->
+<section id="about-us" class="about-us-section" aria-labelledby="about-head">
+  <h2 id="about-head">எங்களைப் பற்றி தெரிந்து கொள்ளுங்கள்</h2>
+  <div class="about-content-wrapper">
+    <div class="about-text-column">
+      <p class="lead-about">AB Life Health Caretaker இல், ஒவ்வொருவரும் மதிப்புடன், பரிவுடன் பராமரிப்பு பெறுவதற்கு உரியவர்கள் என்று நாங்கள் நம்புகிறோம். எங்கள் பயிற்சி பெற்ற மற்றும் சான்றளிக்கப்பட்ட பராமரிப்பாளர்கள் முதியோர், நோயாளிகள் மற்றும் தினசரி உதவி தேவைப்படும் நபர்களை ஆதரிக்க தயார். எங்கள் குறிக்கோள் எளிதானது — உங்கள் குடும்பத்தாருக்கு வீடே பாதுகாப்பும் மகிழ்ச்சியும் கொண்டு வருவதே. தனிப்பட்ட பராமரிப்பு, மருந்து ஆதரவு, இயக்க உதவி மற்றும் உணர்ச்சி தோழமை உள்ளிட்ட சேவைகள் எங்கள் பராமரிப்பாளர்கள் வழங்குகிறார்கள்.</p>
+
+      <h3 style="margin-top:18px; color:var(--blue)">எனக்கு நம்பிக்கை அளிக்கும் குடும்பங்கள் ஏன் நம்புகிறார்கள்?</h3>
+      <ul>
+        <li><span class="material-symbols-rounded">verified_user</span><strong>சான்றளிக்கப்பட்ட மற்றும் அனுபவமிக்க பராமரிப்பாளர்கள்</strong></li>
+        <li><span class="material-symbols-rounded">fingerprint</span><strong>பின்னணி சரிபார்க்கப்பட்ட நிபுணர்கள்</strong></li>
+        <li><span class="material-symbols-rounded">schedule</span><strong>சரியான நேரத்தில் நம்பகமான சேவை</strong></li>
+        <li><span class="material-symbols-rounded">auto_fix</span><strong>வாடிக்கையாளர் தேவைகளுக்கு ஏற்ப தனிப்பட்ட பராமரிப்பு திட்டங்கள்</strong></li>
+        <li><span class="material-symbols-rounded">cached</span><strong>இலவச மாற்ற உறுதி — கேள்விகள் இல்லை</strong></li>
+        <li><span class="material-symbols-rounded">support</span><strong>24/7 வாடிக்கையாளர் ஆதரவு</strong></li>
+      </ul>
+    </div>
+
+    <div class="about-image-column" style="display:flex; flex-direction:column; gap:20px;">
+      <img class="about-image" src="Figure7.png" alt="பராமரிப்பு குழு புன்னகை">
+      <img class="about-image" src="Figure8.png" alt="குழு குழு புகைப்படம்">
+    </div>
+  </div>
+
+  <div class="value-proposition-block" style="margin-top:20px">
+    <div><h3 style="color:#ffffff">உங்கள் பராமரிப்பு தேவைகளை விவாதிக்க தயாரா?</h3><p>உங்கள் குடும்பத்தின் தனிப்பட்ட நிலையை புரிந்து கொள்ள, இலவச ஆலோசனையை வழங்குகிறோம்.</p></div>
+    <div><a class="btn" href="#contact-us-page" style="background:var(--green)">இலவச ஆலோசனை பெறுங்கள்</a></div>
+  </div>
+</section>
+
+<!-- CONTACT US SECTION -->
+<section id="contact-us-page" class="contact-us-page" aria-labelledby="contact-head">
+  <h1 id="contact-head" style="text-align:center; margin-bottom:8px; color:var(--blue)">எங்கள் குழுவை தொடர்பு கொள்ளுங்கள்</h1>
+  <p style="text-align:center; color:#555; margin-top:0">எந்தவொரு விசாரணைகளுக்கும் எங்கள் குழு உதவ தயாராக உள்ளது</p>
+
+  <div class="contact-grid">
+    <div class="contact-form-container" aria-labelledby="contact-form">
+      <h3 id="contact-form" style="margin-top:0; color:var(--purple)">எங்களுக்கு ஒரு செய்தியை அனுப்புங்கள்</h3>
+
+      <form id="contactForm" action="https://formsubmit.co/ablifehealthcaretaker@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="நிறுவனம் இணையதளத்தில் புதிய விசாரணை">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://ablifehealth.com/thank-you.html">
+
+        <div class="form-group"><label for="name">உங்கள் பெயர்</label><input id="name" name="name" type="text" required placeholder="முழு பெயர்"></div>
+        <div class="form-group"><label for="email">மின்னஞ்சல்</label><input id="email" name="email" type="email" required placeholder="you@example.com"></div>
+        <div class="form-group"><label for="phone">தொலைபேசி</label><input id="phone" name="phone" type="tel" required placeholder="+91 9791402955" value="+919791402955"></div>
+
+        <div class="form-group"><label for="service">தேவைப்படும் சேவை</label><select id="service" name="service" required>
+          <option value="">ஒரு சேவையைத் தேர்ந்தெடுக்கவும்</option>
+          <option>முதியோர் பராமரிப்பு</option>
+          <option>குழந்தை பராமரிப்பாளர்</option>
+          <option>நர்சிங் சேவை</option>
+          <option>பல் பராமரிப்பு பயண ஆதரவு</option>
+          <option>மற்றவை</option>
+        </select></div>
+
+        <div class="form-group"><label for="message">செய்தி</label><textarea id="message" name="message" required placeholder="உங்கள் தேவைகள் பற்றி கூறுங்கள்..."></textarea></div>
+
+        <button type="submit">விசாரணையை சமர்ப்பிக்கவும்</button>
+        <noscript style="display:block; margin-top:10px; color:#c33">JavaScript இயங்கவில்லை — படிவம் சமர்ப்பிக்கப்பட்டாலும் சில UI அம்சங்கள் இயங்காது.</noscript>
+      </form>
+    </div>
+ <div class="info-map-container" aria-hidden="false">
+              <div class="contact-info-block">
+                <div class="contact-item"><span class="material-symbols-rounded">phone_in_talk</span><div><strong>Call Us</strong><br><a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700">+919791402955</a><br><a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700">+917708750619</a></div></div>
+                <div class="contact-item"><span class="material-symbols-rounded">mail</span><div><strong>Email</strong><br><a href="mailto:ablifehealthcaretaker@gmail.com" style="color:var(--blue); text-decoration:none; font-weight:700">ablifehealthcaretaker@gmail.com</a></div></div>
+                <div class="contact-item"><span class="material-symbols-rounded">pin_drop</span><div><p style="margin:0"><strong>Office</strong><br>No: 13 Jayalakshmi Nagar, Arani, Tiruvannamalai 632301.<br><strong>Office</strong><br>bagayam vellore.</p></div></div>
+              </div>
+
+              <div class="map-placeholder"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3892.5900193368393!2d79.27984837494076!3d12.674864721314858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad2953d0055785%3A0xb5ca153cd70e82bf!2s13%2F29%2C%20Jayalakshmi%20Nagar%20Rd%2C%20Arani%2C%20Tamil%20Nadu%20632301!5e0!3m2!1sen!2sin!4v1765265901738!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
+              <h4 style="margin:10px 0 8px; color:var(--purple)">Follow Us</h4>
+              <div class="social-links" style="display:flex; gap:12px">
+                <a href="https://www.facebook.com/share/1BzMVTaow4/" target="_blank" aria-label="Facebook" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden; background:#fff;"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" style="width:26px; filter: invert(32%) sepia(93%) saturate(2279%) hue-rotate(203deg) brightness(96%) contrast(97%);"></a>
+                <a href="https://www.instagram.com/ab_lifehealthcaretaker?igsh=NWoyMGxheDdpYXZ6" target="_blank" aria-label="Instagram" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden;"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" style="width:28px; height:28px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));"></a>
+                <a href="https://wa.me/+919791402955" target="_blank" aria-label="WhatsApp" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden;"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384055.png" style="width:32px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));"></a>
+                <a href="#" target="_blank" aria-label="YouTube" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden;"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" style="width:32px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));"></a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+
+<footer class="footer" role="contentinfo" style="background:linear-gradient(135deg, #0069ff 0%, #1e3a8a 100%); color:#fff; padding:50px 20px 30px; text-align:center; position:relative;">
+  <div style="position:absolute; top:14px; right:20px; background:rgba(255,255,255,0.95); padding:6px 8px; border-radius:10px; display:flex; align-items:center;">
+    <a href="#top" aria-label="Back to top" style="display:inline-block;">
+      <img src="AB Logo.png" alt="AB லோகோ" style="height:56px; width:auto; display:block;">
+    </a>
+  </div>
+  <div class="footer-content" style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:40px; text-align:left;">
+    <div class="footer-about">
+      <h4 style="margin-bottom:15px; font-size:18px; font-weight:700;">ABLifeHealth</h4>
+      <p style="margin:0 0 10px; font-size:14px; line-height:1.6; opacity:0.9;">தொழில்முறை, சான்றளிக்கப்பட்ட பராமரிப்பாளர்களுடன் வீடுகளில் மரியாதை மற்றும் பரிவு கொண்ட சேவைகளை வழங்குதல்.</p>
+      <p style="margin:0; font-size:12px; opacity:0.8;">பதிவு எண்: UDYAM-TN-29-0000100</p>
+      <div style="display:flex; gap:8px; align-items:center; margin-top:8px;">
+        <div style="background:rgba(255,255,255,0.95); padding:4px 6px; border-radius:8px; display:flex; gap:8px; align-items:center;">
+          <img src="Tnhsps Logo.png" alt="Tnhsps லோகோ" style="height:40px; width:auto; display:block;">
+        </div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4 style="margin-bottom:15px; font-size:18px; font-weight:700;">விரைவான இணைப்புகள்</h4>
+      <ul style="list-style:none; padding:0; margin:0; line-height:2;">
+        <li><a href="#top" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">முகப்பு</a></li>
+        <li><a href="#services-page" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">சேவைகள்</a></li>
+        <li><a href="#about-us" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">எங்களை பற்றி</a></li>
+        <li><a href="#contact-us-page" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">தொடர்பு கொள்ள</a></li>
+      </ul>
+    </div>
+    <div class="footer-faq">
+      <h4 style="margin-bottom:15px; font-size:18px; font-weight:700;">அடிக்கடி கேட்கப்படும் கேள்விகள்</h4>
+      <ul style="list-style:none; padding:0; margin:0; line-height:2;">
+        <li><a href="#contact-us-page" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">சேவையை எவ்வாறு முன்பதிவு செய்வது?</a></li>
+        <li><a href="#contact-us-page" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">பணம் செலுத்தும் விருப்பங்கள்</a></li>
+        <li><a href="#contact-us-page" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">சேவை வழங்கும் பகுதிகள்</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4 style="margin-bottom:15px; font-size:18px; font-weight:700;">தொடர்பு கொள்ள</h4>
+      <p style="margin:0 0 8px; font-size:14px;"><strong>தொலைபேசி:</strong><br><a href="tel:+919791402955" style="color:#fff; text-decoration:none;">+919791402955</a><br><a href="tel:+919791402955" style="color:#fff; text-decoration:none;">+917708750619</a></p>
+      <p style="margin:0; font-size:14px;"><strong>மின்னஞ்சல்:</strong><br><a href="mailto:ablifehealthcaretaker@gmail.com" style="color:#fff; text-decoration:none;">ablifehealthcaretaker@gmail.com</a></p>
+    </div>
+  </div>
+  <div style="margin-top:40px; padding-top:30px; border-top:1px solid rgba(255,255,255,0.2); text-align:center;">
+    <p style="margin:0; font-size:13px; opacity:0.9;">© 2025 ABLifeHealth Caretaker. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+  </div>
+</footer>
+
+<script>
+  // Star rating small handler
+  const submitBtn = document.getElementById('submitBtn');
+  const feedbackMsg = document.getElementById('feedbackMsg');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', () => {
+      const selected = document.querySelector('.star-rating input:checked');
+      if (selected) {
+        feedbackMsg.innerHTML = `நன்றி! நீங்கள் ${selected.value} நட்சத்திரத்தை மதிப்பீடு செய்துள்ளீர்கள்.`;
+      } else {
+        feedbackMsg.innerHTML = `சமர்ப்பிக்க முன்னர் நட்சத்திர மதிப்பீட்டை தேர்ந்தெடுக்கவும்.`;
+      }
+    });
+  }
+
+  // IntersectionObserver for animations
+  document.addEventListener('DOMContentLoaded', function(){
+    const leftBlocks = document.querySelectorAll('.left-list .feature-block');
+    const rightBlocks = document.querySelectorAll('.right-list .feature-block');
+    function animateList(blocks, delayStart){ blocks.forEach((b,i)=> setTimeout(()=> b.classList.add('animate-in'), delayStart + i*220)); }
+    const keyFeatures = document.querySelector('.key-features-container');
+    if(keyFeatures){ const obs = new IntersectionObserver((entries,o)=>{ entries.forEach(en=>{ if(en.isIntersecting){ animateList(leftBlocks,100); animateList(rightBlocks,600); o.unobserve(en.target); } }); }, {threshold:0.15}); obs.observe(keyFeatures); }
+
+    const about = document.getElementById('about-us');
+    if(about){ const aboutObs = new IntersectionObserver((entries,o)=>{ entries.forEach(en=>{ if(en.isIntersecting){ about.classList.add('fade-in'); o.unobserve(en.target); } }); }, {threshold:0.15}); aboutObs.observe(about); }
+
+    const contactForm = document.getElementById('contactForm');
+    if(contactForm){ contactForm.addEventListener('submit', function(e){ const email = contactForm.querySelector('#email'); if(email && !email.checkValidity()){ email.focus(); e.preventDefault(); return false; } const submitBtn = contactForm.querySelector('button[type="submit"]'); if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'அனுப்புகிறது...'; } }); }
+  });
+</script>
+
+<a href="https://wa.me/+919791402955" target="_blank" rel="noopener noreferrer" style="position:fixed; right:16px; bottom:18px; background:var(--green); color:#fff; padding:12px 14px; border-radius:999px; text-decoration:none; box-shadow:0 8px 26px rgba(0,0,0,0.18); font-weight:700;">WhatsApp</a>
+
+<!-- Floating We're Hiring Button (Right Bottom Above WhatsApp) -->
+<a href="#careers" class="hiring-float" aria-label="We're hiring">
+  வேலைக்கு அழைக்கிறோம்
+</a>
+
+<style>
+/* Floating Hire Button Style */
+.hiring-float {
+  position: fixed;
+  bottom: 90px; 
+  right: 22px;
+  background: #ff3366;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(255, 51, 102, 0.35);
+  animation: hireBounce 1.4s infinite ease-in-out;
+  z-index: 9999;
+}
+
+/* New Bounce Animation */
+@keyframes hireBounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-7px); }
+  100% { transform: translateY(0); }
+}
+
+/* Mobile adjustments */
+@media(max-width: 600px) {
+  .hiring-float {
+    bottom: 80px;
+    right: 18px;
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+}
+</style>
+<script>
+  const burgerBtn = document.querySelector('.burger-btn');
+  const navMenu = document.querySelector('.nav-menu');
+
+  burgerBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+
+  // Optional: close menu when link clicked
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('show');
+    });
+  });
+</script>
+
+</body>
+</html>

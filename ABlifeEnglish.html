@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ABLifeHealth — Home & Patient Care</title>
+  <meta name="description" content="ABLifeHealth — professional home care, geriatric and nursing services. 24/7 support, trained caregivers." />
+
+  <!-- Material Symbols Rounded -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --blue:#0069ff; --light-blue:#4265ff; --green:#00bb4c; --purple:#7c5efc; --pink:#ff5e7b;
+      --bg:#e9f5ff; --text:#333;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:'Poppins', Arial, sans-serif; background:var(--bg); color:var(--text);
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Header */
+    .header{
+      background:#ffffff; padding:14px 28px; display:flex; align-items:center; justify-content:space-between;
+      box-shadow:0 4px 12px rgba(0,0,0,0.06); position:sticky; top:0; z-index:1200;
+    }
+    .logo{ color:var(--blue); font-weight:800; font-size:26px; text-decoration:none; display:flex; align-items:center; gap:12px; }
+    .logo img{ width:64px; height:auto; border-radius:8px; display:block; }
+    .nav-menu{ display:flex; gap:20px; align-items:center; }
+    .nav-link{ color:var(--text); text-decoration:none; font-weight:600; transition:color .2s; }
+    .nav-link:hover{ color:var(--blue) }
+
+    /* Hero */
+    .hero{ position:relative; width:100%; overflow:hidden; background:linear-gradient(180deg,#ffffff,#f0f7ff) }
+    .hero img{ width:100%; display:block; height:auto; opacity:0.85 }
+    .hero-text{
+      position:absolute; right:6%; top:14%; color:#0a3966; font-weight:900; font-size:40px; text-align:right;
+      text-shadow:2px 2px 12px rgba(255,255,255,0.8); max-width:480px; line-height:1.1; opacity:0;
+      animation:fadeInUp .9s .2s forwards; letter-spacing:-0.5px;
+    }
+
+    /* Layout sections */
+    .section { padding:50px 28px; display:flex; gap:40px; align-items:flex-start; max-width:1300px; margin:0 auto; }
+    .intro-left { flex:1 1 600px; min-width:260px; }
+    .intro-right { flex:0 0 320px; min-width:260px; }
+    .section h1{ margin:0 0 16px; font-size:48px; font-weight:900; line-height:1.15; letter-spacing:-1px; }
+    .highlight-blue{ color:var(--blue) }
+    .highlight-lightblue{ color:var(--light-blue) }
+
+    /* Buttons */
+    .buttons{ margin-top:32px; display:flex; gap:14px; flex-wrap:wrap }
+    .btn{ display:inline-block; padding:14px 28px; border-radius:12px; font-weight:700; text-decoration:none; color:#fff; box-shadow:0 8px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; font-size:15px; }
+    .btn-call{ background:#0a84ff }
+    .btn-wa{ background:#25d366; box-shadow:0 4px 12px rgba(37,211,102,0.4); }
+    .btn:hover{ transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,0.16); }
+    .btn:active{ transform: scale(0.96); opacity:0.85; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+
+    /* Features box */
+    .features-box{ background:linear-gradient(135deg,#ffffff,#fbfdff); border-radius:18px; padding:24px; box-shadow:0 16px 48px rgba(6,24,60,0.08); display:flex; flex-direction:column; gap:12px; border:1px solid rgba(0,105,255,0.08) }
+    .feature{ display:flex; gap:12px; align-items:center; background:linear-gradient(135deg,#e8fff1,#f0fff6); padding:14px; border-radius:12px; font-weight:600; font-size:14px; border-left:3px solid var(--green) }
+    .feature .material-symbols-rounded{ color:var(--blue); font-size:24px; flex-shrink:0 }
+
+    /* Key features diagram */
+    .key-features-container{ background:linear-gradient(135deg,#e8f5ff,#f0faff); border-radius:28px; padding:48px 24px; margin:40px auto; max-width:1100px; box-shadow:0 16px 48px rgba(6,24,60,0.06) }
+    .key-features-diagram{ display:flex; gap:28px; align-items:center; justify-content:space-around; flex-wrap:wrap }
+    .features-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:18px; min-width:240px }
+    .feature-block{ background:linear-gradient(90deg,var(--blue),var(--light-blue)); color:#fff; padding:14px 18px; border-radius:10px; font-weight:700; opacity:0; box-shadow:0 8px 20px rgba(0,105,255,0.2); font-size:14px }
+
+    .center-image-circle{ width:220px; height:220px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 60px rgba(0,105,255,0.15); overflow:hidden; border:18px solid var(--blue) }
+    .center-image-circle img{ width:100%; height:100%; object-fit:cover }
+
+    /* Services */
+    .services-section{ padding:36px 20px; }
+    .service-icons-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:22px; max-width:1100px; margin:18px auto 8px }
+    .service-icon-item{ text-align:center; max-width:120px; font-weight:700 }
+    .icon-box{ width:92px; height:92px; border-radius:20px; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; background:rgba(255,255,255,0.6); box-shadow:0 6px 20px rgba(0,0,0,0.08) }
+    .icon-box .material-symbols-rounded{ font-size:44px }
+
+    /* Service details - About Us style layout */
+    .service-details-container{ background:linear-gradient(135deg, #f8faff 0%, #ffffff 100%); border-radius:24px; padding:50px 40px; max-width:1200px; margin:40px auto; box-shadow:0 20px 60px rgba(0,0,0,0.08); overflow:hidden }
+    .service-detail-block{ display:flex; gap:40px; align-items:stretch; flex-wrap:wrap; margin-bottom:36px; }
+    .service-detail-block:last-child{ margin-bottom:0 }
+    .detail-text{ flex:1 1 500px; display:flex; flex-direction:column; justify-content:center; }
+    /* Clean, modern headings */
+    .service-details-container .detail-text h2 { margin:0 0 16px; font-size:24px; color:var(--blue); font-weight:800; }
+    .service-details-container .detail-text p{ margin:0; color:#555; line-height:1.8; font-size:15px }
+    .detail-image{ flex:0 0 360px; border-radius:18px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#fafcff,#f3f7ff); box-shadow:0 20px 50px rgba(0,100,255,0.15); }
+    .detail-image img{ width:100%; height:100%; object-fit:contain; border-radius:12px; transition: transform .35s ease, filter .25s ease; }
+    .detail-image img:hover{ transform: scale(1.05); filter:brightness(1.02); }
+
+    @media (max-width:700px){ .service-detail-block{ flex-direction:column; text-align:center } .detail-image{ flex:0 0 auto; width:100%; height:280px } }
+
+    /* About / Commitment */
+    .about-us-section{ background:linear-gradient(135deg, #f8faff 0%, #ffffff 100%); border-radius:24px; padding:50px 40px; max-width:1200px; margin:40px auto; box-shadow:0 20px 60px rgba(0,0,0,0.08); overflow:hidden }
+    .about-content-wrapper{ display:flex; gap:40px; align-items:stretch; flex-wrap:wrap }
+    .about-text-column{ flex:1 1 500px; display:flex; flex-direction:column; justify-content:center; }
+    .about-image-column{ flex:0 0 380px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:24px; }
+    .about-image{ width:100%; border-radius:18px; object-fit:cover; box-shadow:0 20px 50px rgba(0,100,255,0.15); transition: all 0.4s ease; }
+    .about-image:hover{ box-shadow:0 30px 70px rgba(0,100,255,0.25); transform: translateY(-5px); }
+    .about-us-section h2{ font-size:38px; color:var(--blue); margin:0 0 24px; font-weight:800; }
+    .about-us-section p.lead-about{ font-size:16px; color:#555; line-height:1.8; margin:0 0 20px; }
+    .about-us-section h3{ font-size:20px; color:var(--blue); margin:28px 0 18px; font-weight:700; }
+    .about-us-section ul{ list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr; gap:14px; }
+    .about-us-section ul li{ background:linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%); padding:16px 18px; border-radius:12px; display:flex; gap:14px; align-items:flex-start; font-weight:600; font-size:15px; transition: all 0.3s ease; border-left:4px solid var(--blue); }
+    .about-us-section ul li:hover{ background:linear-gradient(135deg, #cce0ff 0%, #e0f0ff 100%); transform: translateX(5px); }
+    .about-us-section ul li span.material-symbols-rounded{ color:var(--blue); font-size:24px; flex-shrink:0; }
+
+    .value-proposition-block{ background:var(--purple); color:#fff; padding:18px; border-radius:12px; display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:18px; flex-wrap:wrap }
+
+    /* Contact */
+    .contact-us-page{ padding:48px 20px; max-width:1200px; margin:40px auto; background:linear-gradient(180deg,#f7fbff 0%, #ffffff 100%); border-radius:20px; box-shadow:0 24px 80px rgba(2,6,23,0.06); }
+    .contact-grid{ display:grid; grid-template-columns: 1fr 420px; gap:30px; align-items:start; }
+
+    /* Modern contact form styles (visual only — layout preserved) */
+    .contact-form-container{ background: linear-gradient(180deg,#ffffff,#fbfdff); padding:30px; border-radius:16px; box-shadow:0 18px 50px rgba(15,32,84,0.06); border:1px solid rgba(15,32,84,0.04); }
+    .contact-form-container h3{ margin-top:0; color:var(--purple); font-size:20px; font-weight:800; }
+
+    .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:12px }
+    .form-group{ margin-bottom:14px; position:relative }
+
+    label{ display:block; font-weight:600; margin-bottom:8px; color:#3a4752; font-size:13px }
+
+    input[type="text"], input[type="email"], input[type="tel"], select, textarea{
+      width:100%; padding:14px 16px; font-size:15px; border-radius:12px; border:1px solid rgba(20,40,80,0.08);
+      font-family:inherit; background:linear-gradient(180deg,#fff,#fbfdff); box-shadow:0 6px 20px rgba(16,24,40,0.04);
+      transition: box-shadow .18s ease, border-color .18s ease, transform .08s ease;
+    }
+
+    input::placeholder, textarea::placeholder{ color:#96a0ad }
+
+    input:focus, textarea:focus, select:focus{
+      outline:none; box-shadow: 0 10px 30px rgba(6,105,255,0.10); border-color: rgba(6,105,255,0.8); transform: translateY(-1px);
+    }
+
+    textarea{ min-height:160px; resize:vertical }
+
+    button[type="submit"]{
+      width:100%; padding:14px; border-radius:12px; border:0; background:linear-gradient(90deg,var(--light-blue), var(--blue)); color:#fff; font-weight:800; cursor:pointer;
+      box-shadow:0 12px 40px rgba(10,132,255,0.14); transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+    }
+    button[type="submit"]:hover{ transform: translateY(-3px); box-shadow:0 18px 60px rgba(10,132,255,0.16); }
+    button[type="submit"]:active{ transform: scale(.99); opacity:0.96 }
+
+    /* Keep info/map visuals consistent but slightly refreshed */
+    .info-map-container{ display:flex; flex-direction:column; gap:18px }
+    .contact-info-block{ background:#fff; padding:18px; border-radius:12px; box-shadow:0 12px 36px rgba(2,6,23,0.06) }
+    .contact-item{ display:flex; gap:12px; align-items:flex-start; margin-bottom:12px }
+    .contact-item .material-symbols-rounded{ font-size:26px; color:var(--blue); margin-top:4px }
+    .map-placeholder{ height:300px; border-radius:12px; overflow:hidden; box-shadow:0 14px 40px rgba(2,6,23,0.06) }
+    .map-placeholder iframe{ width:100%; height:100%; border:0; }
+
+    @media (max-width:1000px){ .contact-grid{ grid-template-columns:1fr; } .form-row{ grid-template-columns:1fr } }
+
+    /* Footer */
+    footer.footer{ background:#111; color:#fff; padding:18px; text-align:center; margin-top:20px }
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .section{ flex-direction:column; padding:28px 18px }
+      .intro-right{ order:2; width:100% }
+      .intro-left{ order:1; width:100% }
+      .features-box{ width:100% }
+      .hero-text{ font-size:28px; right:6%; top:10% }
+    }
+    @media (max-width:700px){
+      .service-detail-block{ flex-direction:column; text-align:center }
+      .about-content-wrapper{ flex-direction:column-reverse; align-items:center }
+      .about-image-column{ width:100% }
+      .about-text-column{ width:100% }
+      .about-us-section ul{ grid-template-columns:1fr }
+      .contact-grid{ grid-template-columns:1fr }
+    }
+
+    /* animations */
+    @keyframes fadeInUp{ from{ opacity:0; transform: translateY(10px) } to{ opacity:1; transform: translateY(0) } }
+    @keyframes popUp{ 0%{ transform: scale(1); } 50%{ transform: scale(1.15); } 100%{ transform: scale(1); } }
+    @keyframes colorDisappear{ 0%{ background-color: inherit; opacity:1; } 100%{ background-color: rgba(255,255,255,0.1); opacity:0.3; } }
+    @keyframes card3D{ 0%{ transform: rotateX(0deg) rotateY(0deg) translateZ(0); } 100%{ transform: rotateX(-5deg) rotateY(5deg) translateZ(20px); } }
+    @keyframes float{ 0%, 100%{ transform: translateY(0px); } 50%{ transform: translateY(-12px); } }
+
+    /* Pricing cards 3D */
+    .care-packages-section{ padding:60px 28px; perspective: 1200px; }
+    .package-cards{ display:flex; gap:28px; justify-content:center; flex-wrap:wrap; }
+    .radial-card-container{ width:300px; background:linear-gradient(135deg, #ffffff 0%, #fbfdff 100%); padding:32px 24px; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.08); border:1px solid rgba(0,105,255,0.06); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden; }
+    .radial-card-container::before{ content:''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.5s ease; }
+    .radial-card-container:hover{ transform: translateY(-16px) rotateX(-8deg) rotateY(4deg); box-shadow: 0 40px 100px rgba(0,105,255,0.15), 0 0 60px rgba(0,105,255,0.08); border-color: rgba(0,105,255,0.15); }
+    .radial-card-container:hover::before{ opacity: 1; }
+    .radial-card-container h4{ margin: 16px 0 18px; font-size: 18px; font-weight: 700; transition: all 0.3s ease; }
+    .radial-card-container:hover h4{ transform: scale(1.05); }
+
+    .circle-content{ width:130px; height:130px; border-radius:50%; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; position: relative; transition: all 0.5s ease; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+    .radial-card-container:hover .circle-content{ transform: scale(1.12) rotateZ(8deg); box-shadow: 0 25px 60px rgba(0,0,0,0.2); }
+
+    .radial-card-container ul{ list-style:none; padding:0; margin:12px 0 24px; }
+    .radial-card-container ul li{ padding:10px 0; font-size: 14px; color: #555; font-weight: 500; transition: all 0.3s ease; padding-left: 8px; }
+    .radial-card-container ul li:before{ content: '✓'; color: var(--green); font-weight: 800; margin-right: 10px; }
+    .radial-card-container:hover ul li{ transform: translateX(6px); }
+
+    .radial-card-container .btn{ width: 100%; margin: 0 !important; padding: 14px 16px !important; border-radius: 12px; font-size: 14px; font-weight: 700; transition: all 0.3s ease; text-align: center; }
+    .radial-card-container .btn:hover{ transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.18) !important; }
+    .feature-block.animate-in{ animation:fadeInUp .8s forwards }
+    .about-us-section.fade-in{ animation:fadeInUp .9s .2s forwards; opacity:0 }
+    .service-icon-item{ transition: transform 0.25s ease, box-shadow 0.25s ease; cursor:pointer; transform-style:preserve-3d; }
+    .service-icon-item .icon-box{ transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s ease; }
+    .service-icon-item:hover, .service-icon-item:focus, .service-icon-item:active{ transform: translateY(-6px) scale(1.02); }
+    .service-icon-item:hover .icon-box, .service-icon-item:focus .icon-box{ transform: translateY(-4px) scale(1.06); box-shadow: 0 14px 34px rgba(0,0,0,0.18); }
+    .btn:active{ animation: colorDisappear 0.6s ease forwards; }
+
+    /* Icon colors */
+    .service-icon-item:nth-child(1) .material-symbols-rounded { color: #ff6b6b; }
+    .service-icon-item:nth-child(2) .material-symbols-rounded { color: #ff8c42; }
+    .service-icon-item:nth-child(3) .material-symbols-rounded { color: #f5c400; }
+    .service-icon-item:nth-child(4) .material-symbols-rounded { color: #4caf50; }
+    .service-icon-item:nth-child(5) .material-symbols-rounded { color: #1e90ff; }
+    .service-icon-item:nth-child(6) .material-symbols-rounded { color: #8a2be2; }
+    .service-icon-item:nth-child(7) .material-symbols-rounded { color: #ff1493; }
+
+    /* Star rating */
+    .star-rating input { display: none; }
+    .star-rating label { font-size:28px; color:#ffffff66; cursor:pointer; transition: color 0.2s; }
+    .star-rating label:hover, .star-rating label:hover ~ label { color:#fff; }
+    .star-rating input:checked ~ label { color:#fff; }
+
+    .lang-switch{
+      display: flex;
+      gap: 6px;
+      margin-left: 16px;
+    }
+
+    .lang-switch a{
+      background: #0a6cff;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .lang-switch a:hover{
+      background: #084fc7;
+    }
+
+    .lang-switch a.active{
+      background: #084fc7;
+    }
+
+    /* Floating Hire Button Style */
+    .hiring-float {
+      position: fixed;
+      bottom: 90px; /* keeps it above WhatsApp which is usually at 20-30px */
+      right: 22px;
+      background: #ff3366;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(255, 51, 102, 0.35);
+      animation: hireBounce 1.4s infinite ease-in-out;
+      z-index: 9999;
+    }
+
+    @keyframes hireBounce {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-7px); }
+      100% { transform: translateY(0); }
+    }
+
+    @media(max-width: 600px) {
+      .hiring-float {
+        bottom: 80px;
+        right: 18px;
+        font-size: 13px;
+        padding: 10px 16px;
+      }
+    }
+ 
+    /* =========================
+   MOBILE RESPONSIVE FIXES
+   ========================= */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .logo img {
+    height: 48px !important;
+  }
+
+  /* HERO SECTION */
+  .hero-text {
+    position: static !important;
+    margin: 16px auto 0;
+    text-align: center !important;
+    font-size: 22px !important;
+    line-height: 1.3;
+    padding: 0 12px;
+  }
+
+  .hero img {
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* INTRO SECTION */
+  .section {
+    flex-direction: column;
+    padding: 24px 16px;
+    gap: 24px;
+  }
+
+  .intro-left h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  /* RATING BOX */
+  aside {
+    width: 100% !important;
+  }
+
+  /* FEATURES BOX */
+  .features-box {
+    width: 100%;
+  }
+
+  /* KEY FEATURES */
+  .key-features-diagram {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .center-image-circle {
+    width: 180px;
+    height: 180px;
+    border-width: 12px;
+  }
+
+  /* SERVICES ICON GRID */
+  .service-icons-grid {
+    gap: 16px;
+  }
+
+  .service-icon-item {
+    max-width: 45%;
+  }
+
+  /* SERVICE DETAILS */
+  .service-detail-block {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .detail-image {
+    width: 100%;
+    height: 220px;
+  }
+
+  /* PRICING CARDS */
+  .radial-card-container {
+    width: 100% !important;
+    max-width: 340px;
+  }
+
+  /* CAREERS SECTION */
+  #careers > div {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CONTACT SECTION */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* MAP */
+  .map-placeholder {
+    height: 220px;
+  }
+
+  /* FOOTER */
+  footer.footer {
+    padding: 30px 16px;
+    text-align: center;
+  }
+
+}
+
+/* ===== BURGER BUTTON ===== */
+.burger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #0069ff;
+}
+
+/* ===== MOBILE MENU WITH SMOOTH ANIMATION ===== */
+@media (max-width: 768px) {
+
+  .header {
+    position: relative;
+  }
+
+  .burger-btn {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    z-index: 3000;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 64px;
+    right: 16px;
+    width: 240px;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 12px 0;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+
+    /* animation magic */
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+    pointer-events: none;
+    transition: all 0.35s ease;
+  }
+
+  .nav-menu.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    padding: 12px 18px;
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .nav-link:hover {
+    background: #f3f7ff;
+  }
+
+  .lang-switch {
+    justify-content: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+/* ===== REMOVE WHITE FOG / GLASS EFFECT ===== */
+
+/* Hero container */
+.hero{
+  background: transparent !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Hero image – keep it crystal clear */
+.hero img{
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* If any overlay or fog layer exists */
+.hero::before,
+.hero::after{
+  content: none !important;
+  display: none !important;
+}
+
+/* Hero text container – no fog */
+.hero-text{
+  background: transparent !important;
+  backdrop-filter: none !important;
+  filter: none !important;
+}
+
+/* existing CSS */
+
+    .container {
+      display: flex;
+      flex-direction: column; /* mobile view */
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row; /* desktop view */
+      }
+    }
+
+       /* Outer box */
+    .news-ticker-rtl {
+      width: 100%;
+      background: #eaf3ff;
+      padding: 8px 0;
+      overflow: hidden;
+      border-top: 2px solid #0069ff22;
+      border-bottom: 2px solid #0069ff22;
+    }
+
+    /* Scrolling text */
+    .news-track {
+      white-space: nowrap;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #000000;
+      animation: moveRTL 12s linear infinite;
+    }
+
+    /* Animation: move right → left */
+    @keyframes moveRTL {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+  </style>
+</head>
+
+<body id="top">
+<header class="header">
+    <a class="logo" href="#top">
+  <img
+    id="site-logo"
+    src="AB Logo.png"
+    alt="AB Life Health logo"
+    style="height:60px; width:auto;"
+  >
+  <span class="logo-text" style="font-size:1.1rem;">
+    AB Life Health caretaker
+  </span>
+</a>
+    <button class="burger-btn" aria-label="Open menu">&#9776;</button>
+    <nav class="nav-menu" aria-label="Main navigation">
+
+      
+      <a class="nav-link" href="#services-page">Services</a>
+      <a class="nav-link" href="#careers">Careers</a>
+      <a class="nav-link" href="#about-us">About Us</a>
+      <a class="nav-link" href="#contact-us-page">Contact Us</a>
+        
+    <div class="lang-switch" aria-hidden="false">
+      
+      <a href="ABlifeTamil.html">தமிழ்</a>
+        <a href="ABlifeEnglish.html" class="active" aria-current="page">English</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="news-ticker-rtl" role="region" aria-label="Announcements">
+    <div class="news-track">
+      We are hiring trained caretakers! &nbsp;&nbsp;|&nbsp;&nbsp;
+      24/7 patient care & support available! &nbsp;&nbsp;|&nbsp;&nbsp;
+      Professional nursing assistants at affordable prices!
+    </div>
+  </div>
+
+  <main>
+    <div class="hero" role="banner" style="position:relative;">
+      <img src="Figure1.png" alt="Comforting home patient care scene">
+
+      <!-- Top-right text + logo (bold text except 'Registered under') -->
+      <div style="position:absolute; top:20px; right:20px; text-align:center; color:#0A1A7A; font-size:14px; line-height:1.4;">
+      <div style="font-weight:bold;">Reg No: UDYAM-TN-29-0000100</div>
+      <div style="margin-top:5px; font-weight:normal;">Registered under</div>
+      <img src="Tnhsps Logo.png" alt="TNHSPS Logo" style="width:120px; margin-top:5px; display:block; margin-left:auto; margin-right:auto;">
+      <div style="margin-top:5px; white-space: nowrap; font-weight:bold;">Tamil Nadu Healthcare & Wellness <br>Service Providers Society (TNHSPS)
+      </div>
+      </div>
+
+      <div class="hero-text" style="margin-top:155px; text-align:center;">
+      <span>Small</span> <span>acts</span> <span>of</span> <span>care</span><br>
+      <span>create</span> <span>big</span> <span>moments</span>
+      <span>of</span> <span>comfort</span>
+      </div>
+      </div>
+
+    <section class="section" aria-labelledby="intro-heading">
+    <div class="intro-left">
+    <h1 id="intro-heading">
+          Your Trusted<br>
+          <span class="highlight-blue">Home Care</span> and<br>
+          <span class="highlight-lightblue">Patient Care</span><br>
+          Specialists
+        </h1>
+
+        <a class="services-link" href="#key-features" style="display:inline-block; margin-top:12px; font-weight:700; color:var(--purple); text-decoration:none;">View Our Key Benefits →</a>
+
+        <div class="buttons">
+          <a class="btn btn-wa" href="https://wa.me/+919791402955" target="_blank" rel="noopener noreferrer">WhatsApp us</a>
+          <a class="btn btn-call" href="tel:+919791402955">Call us Now</a>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:flex-start; gap:30px;">
+        <div class="left-section"></div>
+
+        <aside style="width:260px; padding:25px 20px; border-radius:20px; background:linear-gradient(180deg, #bdefff, #a8c7e6); text-align:center; box-shadow:0 12px 28px rgba(0,0,0,0.18);">
+          <h2 style="font-size:20px; font-weight:600; color:#ffffff; margin-bottom:18px;">Rate your<br>experience</h2>
+
+          <div class="star-rating" style="font-size:26px; margin-bottom:20px; display:flex; justify-content:center; gap:10px; flex-direction: row-reverse;">
+            <input type="radio" id="s5" name="rating" value="5"><label for="s5" aria-label="5 stars">&#9733;</label>
+            <input type="radio" id="s4" name="rating" value="4"><label for="s4" aria-label="4 stars">&#9733;</label>
+            <input type="radio" id="s3" name="rating" value="3"><label for="s3" aria-label="3 stars">&#9733;</label>
+            <input type="radio" id="s2" name="rating" value="2"><label for="s2" aria-label="2 stars">&#9733;</label>
+            <input type="radio" id="s1" name="rating" value="1"><label for="s1" aria-label="1 star">&#9733;</label>
+          </div>
+
+          <button id="submitBtn" style="padding:10px 25px; background:white; color:black; border:none; border-radius:25px; font-weight:600; font-size:14px; cursor:pointer; margin-bottom:12px; box-shadow:0 4px 10px rgba(0,0,0,0.20);">Submit Feedback</button>
+
+          <p id="feedbackMsg" style="font-size:12px; color:#ffffff; opacity:0.9; line-height:1.3;">Your name will not be shared — Learn how we handle your data</p>
+        </aside>
+      </div>
+
+      <aside class="intro-right" aria-label="Key features">
+        <div class="features-box" aria-hidden="false">
+          <div class="feature"><span class="material-symbols-rounded" aria-hidden="true">cached</span> Guaranteed Replacement</div>
+          <div class="feature"><span class="material-symbols-rounded" aria-hidden="true">directions_run</span> Doorstep Services</div>
+          <div class="feature"><span class="material-symbols-rounded" aria-hidden="true">chat_bubble</span>24/7 Live Support</div>
+          <div class="feature"><span class="material-symbols-rounded" aria-hidden="true">verified_user</span> Certified Care, Trusted Support</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="key-features" class="key-features-container" aria-labelledby="features-head">
+      <h2 id="features-head" style="text-align:center; margin:0 0 18px;">ABLifeHealth Advantage</h2>
+      <div class="key-features-diagram">
+        <ul class="features-list left-list" aria-hidden="false">
+          <li class="feature-block">Well-trained &amp; Reliable Professionals</li>
+          <li class="feature-block">Individualized Care Plans</li>
+          <li class="feature-block">Effortless Service &amp; Reassurance</li>
+        </ul>
+
+        <div class="center-image-circle" aria-hidden="true">
+          <img src="Circle stethoscope.png" alt="Medical tools and pills">
+        </div>
+
+        <ul class="features-list right-list" aria-hidden="false">
+          <li class="feature-block">Progressive Care Approaches</li>
+          <li class="feature-block">24/7 Availability &amp; Emergency Support</li>
+          <li class="feature-block">Reliable Caregivers for Your Loved Ones</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="services-page" class="services-section" aria-labelledby="services-head">
+    <h1 id="services-head" style="text-align:center; margin:0 0 12px; color:#0a84ff;">  Our Services <span style="color:#000;">at Your Doorstep</span></h1>
+    <div class="service-icons-grid" role="list">
+    <div class="service-icon-item" role="listitem">
+    <div class="icon-box" aria-hidden="true"><span class="material-symbols-rounded">elderly</span></div>
+          Geriatric Care
+    </div>
+    <div class="service-icon-item" role="listitem">
+    <div class="icon-box" aria-hidden="true"><span class="material-symbols-rounded">child_care</span></div>
+          Child Caretaker
+    </div>
+    <div class="service-icon-item" role="listitem">
+    <div class="icon-box" aria-hidden="true"><span class="material-symbols-rounded">dentistry</span></div>
+          Dental Care Visit
+    </div>
+    <div class="service-icon-item" role="listitem">
+    <div class="icon-box" aria-hidden="true"><span class="material-symbols-rounded">health_and_safety</span></div>
+          Nursing Service
+    </div>
+    <div class="service-icon-item" role="listitem">
+    <div class="icon-box" aria-hidden="true"><span class="material-symbols-rounded">emergency</span></div>
+          Ambulance
+    </div>
+    <div class="service-icon-item" role="listitem">
+    <div class="icon-box" aria-hidden="true"><span class="material-symbols-rounded">vaccines</span></div>
+          Pharmacy
+    </div>
+    <div class="service-icon-item" role="listitem">
+    <div class="icon-box" aria-hidden="true"><span class="material-symbols-rounded">wheelchair_pickup</span></div>
+          Medical Equipment
+    </div>
+    </div>
+
+    <div class="service-details-container" aria-hidden="false">
+    <div class="service-detail-block">
+    <div class="detail-text blue-accent">
+    <h2>Child Caretaker</h2><p>We deliver safe, nurturing, and wellness-focused childcare designed to support every child’s healthy growth and development. Our team of trained and caring professionals assists with daily routines, encourages learning through age-appropriate activities, and ensures each child feels secure, valued, and supported throughout the day. We incorporate age-appropriate learning experiences that stimulate curiosity, encourage creativity, and build essential social and cognitive skills. Our caregivers ensure that every child feels secure, valued, and respected, providing consistent reassurance and positive interaction. </p>
+    </div>
+    <div class="detail-image"><img src="Figure2.png" alt="Child caretaker"></div>
+    </div>
+    <div class="service-detail-block">
+    <div class="detail-text">
+    <h2>Nursing Service</h2><p>We provide compassionate, professional nursing care that is carefully tailored to meet each patient’s unique medical, emotional, and daily-living needs. Our skilled nursing team is committed to delivering attentive, patient-centered support that enhances comfort, promotes recovery, and ensures dignity at every stage of care. Our specialized programs are designed to serve a wide range of health conditions and age groups. For elderly patients, we offer comprehensive geriatric care that focuses on safety, mobility support, medication management, companionship, and maintaining overall well-being.</p>
+    </div>
+    <div class="detail-image"><img src="Figure3.png" alt="Nursing at home"></div>
+    </div>
+    <div class="service-detail-block">
+    <div class="detail-text blue-accent">
+    <h2>Geriatric Care</h2>
+    <p>We provide compassionate and reliable in-home care for seniors, ensuring comfort, dignity, and support in the place they feel safest—their own home. Our geriatric care services promote independence while offering attentive assistance tailored to each individual’s physical, emotional, and medical needs. Our trained caregivers help with daily activities such as bathing, grooming, dressing, meal preparation, and maintaining a clean, safe environment. We also assist with medication reminders, basic health monitoring, and mobility support to reduce fall risks and encourage active, steady movement throughout the day.</p>
+    </div>
+    <div class="detail-image"><img src="Figure4.png" alt="Geriatric care"></div>
+    </div>
+    <div class="service-detail-block">
+    <div class="detail-text">
+    <h2>Dental Care Visit Support</h2>
+    <p>We offer comprehensive dental care visit support designed to make every appointment stress-free and comfortable. Our trained caretakers assist throughout the entire process—starting from scheduling the appointment to post-visit recovery.
+    During the visit, our caretakers provide constant support, helping patients with mobility, communication, comfort, and emotional reassurance. After the appointment, we assist with recovery monitoring, medication reminders, oral-care routines, and follow-up visits as needed.</p>
+    </div>
+    <div class="detail-image"><img src="Figure5.png" alt="Dental visit support"></div>
+    </div>
+    </div>
+    </section>
+
+    <section class="care-packages-section" aria-labelledby="pricing-head">
+    <h2 id="pricing-head" style="text-align:center; margin-bottom:18px; color:var(--purple)">Levels of Care & Support</h2>
+    <div class="package-cards" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap">
+    <div class="radial-card-container essential" style="width:300px; background:#ffffff; padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.06)">
+    <div class="circle-content" style="width:130px; height:130px; border-radius:50%; margin:10px auto; background:linear-gradient(45deg,#ff9800,#ffc107); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800"><div style="text-align:center"><div style="font-size:12px">Essential care</div><div style="font-size:22px">2 Hr</div></div></div>
+    <h4 style="color:var(--blue); text-align:center">Short-Term Support</h4>
+    <ul style="list-style:none; padding:0; margin:6px 0 12px"><li style="padding:6px 0">Basic personal care</li><li style="padding:6px 0">Medication reminders</li><li style="padding:6px 0">Meal preparation assistance</li><li style="padding:6px 0">Light housekeeping</li></ul>
+    
+    <!-- Enquire button now includes data-package and enquire-btn class, script will open contact and prefill -->
+    <a class="btn enquire-btn" href="#contact-us-page" data-package="Short-Term Support (Essential care — 2 Hr)" style="background:#ff9800; display:block; text-align:center; width:85%; margin:8px auto" rel="noopener noreferrer">Enquire Now</a>
+    </div>
+    <div class="radial-card-container daily" style="width:300px; background:#fff; padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.06)">
+    <div class="circle-content" style="width:130px; height:130px; border-radius:50%; margin:10px auto; background:linear-gradient(45deg,#673ab7,#9c27b0); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800"><div style="text-align:center"><div style="font-size:12px">Daily Care</div><div style="font-size:22px">10 Hr</div></div></div>
+    <h4 style="color:var(--blue); text-align:center">Comprehensive Daytime Care</h4>
+    <ul style="list-style:none; padding:0; margin:6px 0 12px"><li style="padding:6px 0">All Essential services</li><li style="padding:6px 0">Monitoring and guidance</li><li style="padding:6px 0">Mobility and exercise support</li><li style="padding:6px 0">Feeding support</li></ul>
+    <a class="btn enquire-btn" href="#contact-us-page" data-package="Comprehensive Daytime Care (Daily Care — 10 Hr)" style="background:#673ab7; display:block; text-align:center; width:85%; margin:8px auto" rel="noopener noreferrer">Enquire Now</a>
+    </div>
+    <div class="radial-card-container premium" style="width:300px; background:#fff; padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.06)">
+    <div class="circle-content" style="width:130px; height:130px; border-radius:50%; margin:10px auto; background:linear-gradient(45deg,#f44336,#e91e63); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800"><div style="text-align:center"><div style="font-size:12px">Premium Care</div><div style="font-size:22px">10 Hr</div></div></div>
+    <h4 style="color:var(--blue); text-align:center">Full-Time Live-in Care</h4>
+    <ul style="list-style:none; padding:0; margin:6px 0 12px"><li style="padding:6px 0">Full personal hygiene care</li><li style="padding:6px 0">Advanced medical monitoring (if required)</li><li style="padding:6px 0">Diaper changing</li></ul>
+    <a class="btn enquire-btn" href="#contact-us-page" data-package="Full-Time Live-in Care (Premium Care — 10 Hr)" style="background:#f44336; display:block; text-align:center; width:85%; margin:8px auto" rel="noopener noreferrer">Enquire Now</a>
+    </div>
+    </div>
+    </section>
+    
+    <section class="contact-details-section" style="text-align:center; padding:30px 0; margin-top:30px; background-color:#f8f9fa;">
+    <h3 style="color:#4a148c; margin-bottom:15px; font-size:22px;">Contact Us Directly</h3>
+    <p style="color:#555; margin-bottom:20px; font-size:16px;">For immediate assistance or detailed inquiries, please reach out to us.</p>
+    <div class="contact-methods" style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
+    <div class="contact-method-item" style="display:flex; align-items:center; font-size:18px;">
+    <span style="color:#007bff; margin-right:10px; font-size:24px;">&#9742;</span> 
+    <a href="tel:+919791402955" style="color:#007bff; text-decoration:none; font-weight:600;">+919791402955  |  +917708750619</a>
+    </div>
+    <div class="contact-method-item" style="display:flex; align-items:center; font-size:18px;">
+    <span style="color:#007bff; margin-right:10px; font-size:24px;">&#9993;</span> 
+    <a href="mailto:ablifehealthcaretaker@gmail.com" style="color:#007bff; text-decoration:none; font-weight:600;">ablifehealthcaretaker@gmail.com</a>
+    </div>
+    </div>
+    </section>
+
+    <!-- CAREERS SECTION -->
+    <section id="careers" class="about-us-section" aria-labelledby="careers-head" style="padding:40px 28px; margin:40px auto; max-width:1200px;">
+    <h2 id="careers-head"
+    style="font-size:32px; color:var(--blue); margin:0 0 18px; font-weight:800; text-align:center;">Grow your career with us</h2>
+    <p style="color:#555; margin:8px 0 22px; line-height:1.7; font-size:15px;">Build a meaningful career delivering compassionate home care. We provide training, reliable schedules, and a supportive environment so you can focus on what matters — caring for people.</p>
+    <div style="display:grid; grid-template-columns: 1fr 420px; gap:28px; align-items:start;">
+     <!-- Left column: Benefits + Open Roles -->
+    <div>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:14px; margin-bottom:20px;">
+    <div class="features-box" style="padding:16px; border-radius:12px;">
+    <strong style="display:block; margin-bottom:8px;">Competitive pay</strong>
+    <div style="color:#555; font-size:14px;">Fair wages with periodic reviews and allowances.</div>
+    </div>
+
+    <div class="features-box" style="padding:16px; border-radius:12px;">
+              <strong style="display:block; margin-bottom:8px;">Flexible shifts</strong>
+              <div style="color:#555; font-size:14px;">Part-time, full-time, short-term and live-in opportunities.</div>
+            </div>
+
+            <div class="features-box" style="padding:16px; border-radius:12px;">
+              <strong style="display:block; margin-bottom:8px;">Training & certification</strong>
+              <div style="color:#555; font-size:14px;">Onboarding, first-aid, and continuous skill development.</div>
+            </div>
+
+            <div class="features-box" style="padding:16px; border-radius:12px;">
+              <strong style="display:block; margin-bottom:8px;">Safe & supportive</strong>
+              <div style="color:#555; font-size:14px;">24/7 staff support, background-verified clients, respectful assignments.</div>
+            </div>
+            <div class="features-box" style="padding:16px; border-radius:12px;">
+              <strong style="display:block; margin-bottom:8px;">Certification Assistance</strong>
+              <div style="color:#555; font-size:14px;">We support you in obtaining essential certifications to enhance your skills and advance your healthcare career.</div>
+            </div>
+            <div class="features-box" style="padding:16px; border-radius:12px;">
+              <strong style="display:block; margin-bottom:8px;">Healthcare Career Growth</strong>
+              <div style="color:#555; font-size:14px;">Discover meaningful opportunities to learn, grow, and build a rewarding career within the healthcare field.</div>
+            </div>
+          </div>
+
+          <div style="text-align:center; margin:30px 0;">
+            <img src="Figure6.png"
+                 alt="Caretaker walking with senior couple"
+                 style="max-width:100%; height:auto; border-radius:12px;">
+          </div>
+
+          <h3 style="color:var(--blue); margin:16px 0 8px; font-size:20px;">Open Positions</h3>
+          <ul style="list-style:none; padding:0; margin:0 0 18px; display:grid; gap:8px;">
+            <li style="background:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); font-weight:700;">Geriatric Caregiver</li>
+            <li style="background:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); font-weight:700;">Home Caretaker / Patient Attender</li>
+            <li style="background:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); font-weight:700;">Child Caregiver / Nanny</li>
+            <li style="background:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); font-weight:700;">Nursing Assistant</li>
+            <li style="background:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); font-weight:700;">Special Needs Caregiver</li>
+            <li style="background:#fff; padding:12px 14px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); font-weight:700;">Cooking</li>
+          </ul>
+
+          <h3 style="color:var(--blue); margin:8px 0 8px; font-size:18px;">Typical Responsibilities</h3>
+          <p style="color:#555; margin:0 0 18px; line-height:1.6; font-size:14px;">
+            Assist with personal care (bathing, dressing), mobility support, medication reminders, meal preparation,
+            light housekeeping, and provide compassionate companionship.
+          </p>
+        </div>
+
+        <!-- Right column: Apply form + Contact -->
+        <aside style="background:linear-gradient(180deg,#ffffff,#fbfdff); padding:20px; border-radius:12px; box-shadow:0 16px 40px rgba(2,6,23,0.06);">
+          <h3 style="margin:0 0 12px; color:var(--purple); font-size:18px;">Apply Now</h3>
+
+          <form id="careersForm" action="https://formsubmit.co/ablifehealthcaretaker@gmail.com" method="POST" enctype="multipart/form-data" style="display:grid; gap:10px;">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New career application">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://ablifehealth.com/thank-you.html">
+
+            <label style="font-weight:700; font-size:13px;">Full name<input name="name" type="text" required placeholder="Your full name" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
+
+            <label style="font-weight:700; font-size:13px;">Phone<input name="phone" type="tel" required placeholder="+91 9XXXXXXXXX" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
+
+            <label style="font-weight:700; font-size:13px;">Email<input name="email" type="email" required placeholder="you@example.com" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
+
+            <label style="font-weight:700; font-size:13px;">Position applying for
+              <select name="position" required style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);">
+                <option value="">Select a role</option>
+                <option>Geriatric Caregiver</option>
+                <option>Home Caretaker</option>
+                <option>Child Caregiver</option>
+                <option>Nursing Assistant</option>
+                <option>Special Needs Caregiver</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <label style="font-weight:700; font-size:13px;">Preferred shift
+              <select name="shift" required style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);">
+                <option value="">Select a shift</option>
+                <option>Day</option>
+                <option>Night</option>
+                <option>24-hour / Live-in</option>
+                <option>Flexible / Part-time</option>
+              </select>
+            </label>
+
+            <label style="font-weight:700; font-size:13px;">Experience (years)<input name="experience" type="text" placeholder="e.g., 2 years" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
+
+            <label style="font-weight:700; font-size:13px;">Upload resume / ID (optional)
+              <input name="file" type="file" accept=".pdf,.doc,.docx,.jpg,.png" style="width:100%; padding:8px 6px; border-radius:8px; border:1px solid rgba(20,40,80,0.06);">
+            </label>
+
+            <label style="font-weight:700; font-size:13px;">Message / Notes<textarea name="message" placeholder="Tell us about your availability, strengths..." style="width:100%; padding:10px 12px; border-radius:10px; min-height:90px; border:1px solid rgba(20,40,80,0.08);"></textarea></label>
+
+            <button type="submit" style="width:100%; padding:12px; border-radius:12px; border:0; background:linear-gradient(90deg,var(--light-blue),var(--blue)); color:#fff; font-weight:800; cursor:pointer;">Submit Application</button>
+          </form>
+
+          <!-- RECRUITMENT FORM SECTION (Download Only) -->
+          <section id="recruitment-form" style="max-width:800px; margin:40px auto; padding:28px; border-radius:12px; background:#ffffff; box-shadow:0 12px 36px rgba(2,6,23,0.06);">
+
+            <h2 style="color:var(--blue); margin:0 0 10px; font-size:28px; font-weight:800;">
+              Recruitment Form
+            </h2>
+
+            <p style="color:#555; margin:0 0 20px; line-height:1.6; font-size:15px;">
+              Please download the official Recruitment Form, fill it carefully, and submit it to our HR team via email or WhatsApp.
+            </p>
+
+            <!-- DOWNLOAD BOX -->
+            <div style="text-align:center; padding:24px; border-radius:12px; background:linear-gradient(180deg,#f8fbff,#ffffff); box-shadow:0 8px 26px rgba(0,0,0,0.05);">
+
+              <a href="ab-lifehealth-recruitment-form.pdf"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 style="display:inline-block; padding:14px 22px; background:var(--light-blue); color:white; font-size:16px; font-weight:700; border-radius:12px; text-decoration:none; box-shadow:0 8px 24px rgba(6,105,255,0.18);">
+                Download Recruitment Form (PDF)
+              </a>
+
+              <p style="margin-top:12px; color:#666; font-size:14px;">
+                File: ab-lifehealth-recruitment-form.pdf
+              </p>
+            </div>
+          </section>
+
+          <div style="margin-top:14px; font-size:13px; color:#555;">
+            <strong>Contact HR:</strong><br>
+            <a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700;">+9197914 02955</a><br>
+            <a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700;">+917708750619</a><br>
+            <a href="mailto:ablifehealthcaretaker@gmail.com" style="color:var(--blue); text-decoration:none; font-weight:700;">ablifehealthcaretaker@gmail.com</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about-us" class="about-us-section" aria-labelledby="about-head">
+      <h2 id="about-head">Get to Know Us</h2>
+      <div class="about-content-wrapper">
+        <div class="about-text-column">
+          <p class="lead-about">At AB Life Health Caretaker, we believe every person deserves care that is filled with dignity, respect, and compassion. We provide professional, certified caregivers who are fully trained to support seniors, patients recovering from illness or surgery, and individuals needing assistance with daily activities. Our mission is simple — to bring comfort, safety, and happiness to your loved ones, right at home. From personal care and medication support to mobility assistance and emotional companionship, our caregivers are dedicated to delivering care that feels like family.</p>
+          <h3 style="margin-top:18px; color:var(--blue)">Why people Trust Us?</h3>
+          <ul>
+            <li><span class="material-symbols-rounded" aria-hidden="true">verified_user</span><strong>Certified and experienced caregivers</strong></li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">fingerprint</span><strong>Background-verified professionals</strong></li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">schedule</span><strong>On-time and reliable service</strong></li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">auto_fix</span><strong>Personalized care plans based on client needs</strong></li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">cached</span><strong>Free replacement guarantee — no questions asked</strong></li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">support</span><strong>24/7 client support</strong></li>
+          </ul>
+        </div>
+
+        <div class="about-image-column" style="display:flex; flex-direction:column; gap:20px;">
+          <img class="about-image" src="Figure7.png" alt="Smiling care team">
+          <img class="about-image" src="Figure8.png" alt="Care team group photo">
+        </div>
+      </div>
+
+      <div class="value-proposition-block" style="margin-top:20px">
+        <div><h3 style="color:#ffffff">Ready to Discuss Your Care Needs?</h3><p>We offer a free, no-obligation consultation to understand your family's unique situation.</p></div>
+        <div><a class="btn" href="#contact-us-page" style="background:var(--green)" rel="noopener noreferrer">Get a Free Consultation</a></div>
+      </div>
+    </section>
+
+    <section id="contact-us-page" class="contact-us-page" aria-labelledby="contact-head">
+      <h1 id="contact-head" style="text-align:center; margin-bottom:8px; color:var(--blue)">Contact Our Dedicated Team</h1>
+      <p style="text-align:center; color:#555; margin-top:0">Our Team is Here to Help You with Any Inquiries or Issues You May Have</p>
+
+      <div class="contact-grid">
+        <div class="contact-form-container" aria-labelledby="contact-form">
+          <h3 id="contact-form" style="margin-top:0; color:var(--purple)">Send Us a Message</h3>
+
+          <form id="contactForm" action="https://formsubmit.co/ablifehealthcaretaker@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New contact inquiry from website">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://ablifehealth.com/thank-you.html">
+
+            <div class="form-group"><label for="name">Your Name</label><input id="name" name="name" type="text" required placeholder="Full name"></div>
+            <div class="form-group"><label for="email">Email address</label><input id="email" name="email" type="email" required placeholder="you@example.com"></div>
+            <div class="form-group"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" required placeholder="+91 9791402955" value="+919791402955"></div>
+
+            <div class="form-group"><label for="service">Service needed</label><select id="service" name="service" required><option value="">Select a Service</option><option>Geriatric Care</option><option>Child Caretaker</option><option>Nursing Service</option><option>Dental Care Visit Support</option><option>Other</option></select></div>
+
+            <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required placeholder="Tell us about your requirements..."></textarea></div>
+
+            <button type="submit">Submit Inquiry</button>
+            <noscript style="display:block; margin-top:10px; color:#c33">JavaScript is disabled — the form will still submit, but some UX features won't run.</noscript>
+          </form>
+        </div>
+
+        <div class="info-map-container" aria-hidden="false">
+          <div class="contact-info-block">
+            <div class="contact-item"><span class="material-symbols-rounded" aria-hidden="true">phone_in_talk</span><div><strong>Call Us</strong><br><a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700">+919791402955</a><br><a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700">+917708750619</a></div></div>
+            <div class="contact-item"><span class="material-symbols-rounded" aria-hidden="true">mail</span><div><strong>Email</strong><br><a href="mailto:ablifehealthcaretaker@gmail.com" style="color:var(--blue); text-decoration:none; font-weight:700">ablifehealthcaretaker@gmail.com</a></div></div>
+            <div class="contact-item"><span class="material-symbols-rounded" aria-hidden="true">pin_drop</span><div><p style="margin:0"><strong>Office</strong><br>No: 13 Jayalakshmi Nagar, Arani, Tiruvannamalai 632301.<br><strong>Office</strong><br>bagayam vellore.</p></div></div>
+          </div>
+
+          <div class="map-placeholder"><iframe title="Office location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3892.5900193368393!2d79.27984837494076!3d12.674864721314858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad2953d0055785%3A0xb5ca153cd70e82bf!2s13%2F29%2C%20Jayalakshmi%20Nagar%20Rd%2C%20Arani%2C%20Tamil%20Nadu%20632301!5e0!3m2!1sen!2sin!4v1765265901738!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
+          <h4 style="margin:10px 0 8px; color:var(--purple)">Follow Us</h4>
+          <div class="social-links" style="display:flex; gap:12px">
+            <a href="https://www.facebook.com/share/1BzMVTaow4/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden; background:#fff;"><img alt="Facebook" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" style="width:26px; filter: invert(32%) sepia(93%) saturate(2279%) hue-rotate(203deg) brightness(96%) contrast(97%);"></a>
+            <a href="https://www.instagram.com/ab_lifehealthcaretaker?igsh=NWoyMGxheDdpYXZ6" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden;"><img alt="Instagram" src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" style="width:28px; height:28px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));"></a>
+            <a href="https://wa.me/+919791402955" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden;"><img alt="WhatsApp" src="https://cdn-icons-png.flaticon.com/512/1384/1384055.png" style="width:32px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));"></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden;"><img alt="YouTube" src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" style="width:32px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo" style="background:linear-gradient(135deg, #0069ff 0%, #1e3a8a 100%); color:#fff; padding:50px 20px 30px; text-align:center; position:relative;">
+    <div style="position:absolute; top:14px; right:20px; background:rgba(255,255,255,0.95); padding:6px 8px; border-radius:10px; display:flex; align-items:center;">
+      <a href="#top" aria-label="Back to top" style="display:inline-block;">
+        <img src="AB Logo.png" alt="AB Logo" style="height:56px; width:auto; display:block;">
+      </a>
+    </div>
+    <div class="footer-content" style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:40px; text-align:left;">
+      <div class="footer-about">
+        <h4 style="margin-bottom:15px; font-size:18px; font-weight:700;">ABLifeHealth</h4>
+        <p style="margin:0 0 10px; font-size:14px; line-height:1.6; opacity:0.9;">Bringing dignity & compassion home with professional, certified caregivers.</p>
+        <p style="margin:0; font-size:12px; opacity:0.8;">Reg No: UDYAM-TN-29-0000100</p>
+        <div style="display:flex; gap:8px; align-items:center; margin-top:8px;">
+          <div style="background:rgba(255,255,255,0.95); padding:4px 6px; border-radius:8px; display:flex; gap:8px; align-items:center;">
+            <img src="Tnhsps Logo.png" alt="TNHSPS Logo" style="height:40px; width:auto; display:block;">
+          </div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4 style="margin-bottom:15px; font-size:18px; font-weight:700;">Quick Links</h4>
+        <ul style="list-style:none; padding:0; margin:0; line-height:2;">
+          <li><a href="#top" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">Home</a></li>
+          <li><a href="#services-page" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">Services</a></li>
+          <li><a href="#about-us" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">About Us</a></li>
+          <li><a href="#contact-us-page" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-faq">
+        <h4 style="margin-bottom:15px; font-size:18px; font-weight:700;">FAQ</h4>
+        <ul style="list-style:none; padding:0; margin:0; line-height:2;">
+          <li><a href="#contact-us-page" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">How to book a service?</a></li>
+          <li><a href="#contact-us-page" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">Payment options</a></li>
+          <li><a href="#contact-us-page" style="color:#fff; text-decoration:none; font-size:14px; transition:opacity 0.3s;">Service areas</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4 style="margin-bottom:15px; font-size:18px; font-weight:700;">Contact</h4>
+        <p style="margin:0 0 8px; font-size:14px;"><strong>Phone:</strong><br><a href="tel:+919791402955" style="color:#fff; text-decoration:none;">+919791402955</a><br><a href="tel:+919791402955" style="color:#fff; text-decoration:none;">+917708750619</a></p>
+        <p style="margin:0; font-size:14px;"><strong>Email:</strong><br><a href="mailto:ablifehealthcaretaker@gmail.com" style="color:#fff; text-decoration:none;">ablifehealthcaretaker@gmail.com</a></p>
+      </div>
+    </div>
+    <div style="margin-top:40px; padding-top:30px; border-top:1px solid rgba(255,255,255,0.2); text-align:center;">
+      <p style="margin:0; font-size:13px; opacity:0.9;">© 2025 ABLifeHealth Caretaker. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/+919791402955" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="position:fixed; right:16px; bottom:18px; background:var(--green); color:#fff; padding:12px 14px; border-radius:999px; text-decoration:none; box-shadow:0 8px 26px rgba(0,0,0,0.18); font-weight:700;">WhatsApp</a>
+
+  <!-- Floating We're Hiring Button -->
+  <a href="#careers" class="hiring-float" aria-label="We're hiring">
+    We're Hiring
+  </a>
+
+  <script>
+    // Star rating small handler (safe numeric conversion)
+    const submitBtn = document.getElementById('submitBtn');
+    const feedbackMsg = document.getElementById('feedbackMsg');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', () => {
+        const selected = document.querySelector('.star-rating input:checked');
+        if (selected) {
+          const rating = Number(selected.value);
+          feedbackMsg.innerHTML = `Thank you! You rated ${rating} star${rating > 1 ? 's' : ''}.`;
+        } else {
+          feedbackMsg.innerHTML = `Please select a star rating before submitting.`;
+        }
+      });
+    }
+
+    // IntersectionObserver for animations and simple contact validation UX
+    document.addEventListener('DOMContentLoaded', function(){
+      const leftBlocks = document.querySelectorAll('.left-list .feature-block');
+      const rightBlocks = document.querySelectorAll('.right-list .feature-block');
+      function animateList(blocks, delayStart){ blocks.forEach((b,i)=> setTimeout(()=> b.classList.add('animate-in'), delayStart + i*220)); }
+      const keyFeatures = document.querySelector('.key-features-container');
+      if(keyFeatures){ const obs = new IntersectionObserver((entries,o)=>{ entries.forEach(en=>{ if(en.isIntersecting){ animateList(leftBlocks,100); animateList(rightBlocks,600); o.unobserve(en.target); } }); }, {threshold:0.15}); obs.observe(keyFeatures); }
+
+      const about = document.getElementById('about-us');
+      if(about){ const aboutObs = new IntersectionObserver((entries,o)=>{ entries.forEach(en=>{ if(en.isIntersecting){ about.classList.add('fade-in'); o.unobserve(en.target); } }); }, {threshold:0.15}); aboutObs.observe(about); }
+
+      const contactForm = document.getElementById('contactForm');
+      if(contactForm){ contactForm.addEventListener('submit', function(e){
+        const email = contactForm.querySelector('#email');
+        if(email && !email.checkValidity()){
+          email.focus();
+          e.preventDefault();
+          return false;
+        }
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        if(submitBtn){
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+        }
+      }); }
+    });
+  </script>
+
+  <script>
+    // New: handle "Enquire Now" buttons so they open contact and prefill the contact form
+    (function(){
+      function scrollToContactAndPrefill(packageText) {
+        const contactSection = document.getElementById('contact-us-page');
+        const contactForm = document.getElementById('contactForm');
+        if (!contactSection || !contactForm) {
+          // fallback to simply navigate
+          if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
+
+        // ensure the select has "Other" option available and set to Other if packageText not matching options
+        const serviceSelect = contactForm.querySelector('#service');
+        const messageField = contactForm.querySelector('#message');
+        if (serviceSelect) {
+          // try to find a matching option (loose match)
+          const matchOption = Array.from(serviceSelect.options).find(opt => {
+            return opt.textContent.trim().toLowerCase() === packageText.trim().toLowerCase()
+                   || packageText.toLowerCase().includes(opt.textContent.trim().toLowerCase());
+          });
+          if (matchOption) {
+            serviceSelect.value = matchOption.textContent;
+          } else {
+            // set to Other if available, otherwise add an "Other" value
+            const otherOpt = Array.from(serviceSelect.options).find(o => o.textContent.trim().toLowerCase() === 'other');
+            if (otherOpt) {
+              serviceSelect.value = otherOpt.textContent;
+            } else {
+              // append an Other option and select it
+              const opt = document.createElement('option');
+              opt.text = 'Other';
+              opt.value = 'Other';
+              serviceSelect.add(opt);
+              serviceSelect.value = 'Other';
+            }
+          }
+        }
+
+        if (messageField && packageText) {
+          const existing = messageField.value ? messageField.value + "\n\n" : "";
+          messageField.value = existing + `I am interested in: ${packageText}. Please contact me with details and pricing.`;
+        }
+
+        // smooth scroll and focus the phone field so user can enter contact quickly
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+          const phone = contactForm.querySelector('#phone');
+          if (phone) phone.focus();
+        }, 600);
+      }
+
+      // Attach click listeners to enquire buttons
+      document.addEventListener('click', function(e){
+        const btn = e.target.closest && e.target.closest('.enquire-btn');
+        if (!btn) return;
+        // prevent default anchor action so we can smooth-scroll and prefill
+        e.preventDefault();
+        const pkg = btn.getAttribute('data-package') || btn.textContent.trim();
+        scrollToContactAndPrefill(pkg);
+        // update URL hash for accessibility/back button but keep query params clean
+        history.replaceState(null, '', '#contact-us-page');
+      });
+
+      // Also support URL query param ?package=... so external links can prefill
+      // Example: ABlifeEnglish.html?package=Premium%20Care#contact-us-page
+      document.addEventListener('DOMContentLoaded', function(){
+        try {
+          const params = new URLSearchParams(window.location.search);
+          if (params.has('package')) {
+            const pkg = params.get('package');
+            // if page also has hash to contact, scroll after small delay to let everything render
+            setTimeout(() => scrollToContactAndPrefill(pkg), 300);
+          }
+        } catch (err) {
+          // ignore URL parsing errors
+        }
+      });
+    })();
+  </script>
+
+ <script>
+  const burgerBtn = document.querySelector('.burger-btn');
+  const navMenu = document.querySelector('.nav-menu');
+
+  burgerBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+
+  // Optional: close menu when link clicked
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('show');
+    });
+  });
+</script>
+ 
+</body>
+</html>
