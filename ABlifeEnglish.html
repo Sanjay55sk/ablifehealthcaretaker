@@ -158,9 +158,9 @@
     footer.footer{ background:#111; color:#fff; padding:18px; text-align:center; margin-top:20px }
 
     /* Responsive */
-    @media (max-width:1000px){
-      .section{ flex-direction:column; padding:28px 18px }
-      .intro-right{ order:2; width:100% }
+    @media (max-width:400px){
+      .section{ flex-direction:column; padding:40px 18px }
+      
       .intro-left{ order:1; width:100% }
       .features-box{ width:100% }
       .hero-text{ font-size:28px; right:6%; top:10% }
@@ -181,15 +181,14 @@
     @keyframes card3D{ 0%{ transform: rotateX(0deg) rotateY(0deg) translateZ(0); } 100%{ transform: rotateX(-5deg) rotateY(5deg) translateZ(20px); } }
     @keyframes float{ 0%, 100%{ transform: translateY(0px); } 50%{ transform: translateY(-12px); } }
 
-    /* Pricing cards 3D */
-    .care-packages-section{ padding:60px 28px; perspective: 1200px; }
-    .package-cards{ display:flex; gap:28px; justify-content:center; flex-wrap:wrap; }
-    .radial-card-container{ width:300px; background:linear-gradient(135deg, #ffffff 0%, #fbfdff 100%); padding:32px 24px; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.08); border:1px solid rgba(0,105,255,0.06); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden; }
-    .radial-card-container::before{ content:''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.5s ease; }
-    .radial-card-container:hover{ transform: translateY(-16px) rotateX(-8deg) rotateY(4deg); box-shadow: 0 40px 100px rgba(0,105,255,0.15), 0 0 60px rgba(0,105,255,0.08); border-color: rgba(0,105,255,0.15); }
-    .radial-card-container:hover::before{ opacity: 1; }
-    .radial-card-container h4{ margin: 16px 0 18px; font-size: 18px; font-weight: 700; transition: all 0.3s ease; }
-    .radial-card-container:hover h4{ transform: scale(1.05); }
+     /* Pricing cards 3D */
+        .care-packages-section{ padding:60px 28px; perspective: 1200px; }
+        .package-cards{ display:flex; gap:28px; justify-content:center; flex-wrap:wrap; }
+        .radial-card-container{ width:300px; background:linear-gradient(135deg, #ffffff 0%, #fbfdff 100%); padding:32px 24px; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.08); border:1px solid rgba(0,105,255,0.06); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden; }
+        .radial-card-container::before{ content:''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.5s ease; }
+        .radial-card-container:hover{ transform: translateY(-16px) rotateX(-8deg) rotateY(4deg); box-shadow: 0 40px 100px rgba(0,105,255,0.15), 0 0 60px rgba(0,105,255,0.08); border-color: rgba(0,105,255,0.15); }
+        .radial-card-container h4{ margin: 16px 0 18px; font-size: 18px; font-weight: 700; transition: all 0.3s ease; }
+        .radial-card-container:hover h4{ transform: scale(1.05); }
 
     .circle-content{ width:130px; height:130px; border-radius:50%; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; position: relative; transition: all 0.5s ease; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
     .radial-card-container:hover .circle-content{ transform: scale(1.12) rotateZ(8deg); box-shadow: 0 25px 60px rgba(0,0,0,0.2); }
@@ -284,7 +283,7 @@
     /* =========================
    MOBILE RESPONSIVE FIXES
    ========================= */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
 
   body {
     overflow-x: hidden;
@@ -308,6 +307,20 @@
   .logo img {
     height: 48px !important;
   }
+
+  .intro-right{
+    max-width: 300px;
+    padding: 0;
+    margin: 10px 20px;
+  }
+
+  .ratebox{
+    max-width: 300px;
+    padding: 0px;
+    margin: 0px 20px;
+  }
+
+
 
   /* HERO SECTION */
   .hero-text {
@@ -335,18 +348,86 @@
     font-size: 30px;
     text-align: center;
   }
+  
+  .ratebox{
+    max-width: 300px;
+    padding: 0px;
+    margin: 0px 20px;
+  }
+
+  .value-proposition-block{ flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    margin: 0px;
+
+  }
+
+  .careersbox{
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    max-width: 300px;
+    overflow: auto;
+  }
+
+
+  .about-us-section{
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 10px;
+
+  }
+
+  .contact-us-page{
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 10px;
+
+  }
+
+  .contact-form-container{
+    max-width: 300px;
+    align-self: center;
+
+  }
+
+  .contact-info-block{
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    flex-wrap: wrap;
+    max-width: 300px;
+    font-size: 12px;
+
+  }
+
+  .radial-card-container essential{
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: auto;
+
+
+  }
+
 
   .buttons {
     justify-content: center;
   }
 
-/* RATING BOX */
-  aside {
-   width: 500% !important;
-    max-width: 640px;
-    align: center !important;
-  }
 
+  /* RATING BOX */
+  aside {
+   width: 400% !important;
+    max-width: 700px;
+    align-items: center !important; 
+
+  }
 
   /* KEY FEATURES */
   .key-features-diagram {
@@ -381,13 +462,15 @@
   }
 
   /* PRICING CARDS */
-  .radial-card-container {
+  .radial-card-container 
+{
     width: 100% !important;
-    max-width: 340px;
+gap: 16px;
+    max-width: 45%;
   }
 
   /* CAREERS SECTION */
-  #careers > div {
+  {
     grid-template-columns: 1fr !important;
   }
 
@@ -406,6 +489,22 @@
     padding: 30px 16px;
     text-align: center;
   }
+
+ #careers{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+}
+.applynowform{
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 20px;
+  overflow: auto;
+
+}
 
 }
 
@@ -597,11 +696,11 @@
       <!-- Top-right text + logo (bold text except 'Registered under') -->
       <div style="position:absolute; top:20px; right:20px; text-align: center; color:#0A1A7A; font-size:12px; line-height:1.4;">
       <div style="font-weight:bold;">Reg No: UDYAM-TN-29-0000100</div>
-            <div style="margin-top:5px; white-space: nowrap; font-weight:bold;">Tamil Nadu Healthcare<br> Wellness Service <br>Providers Society (TNHSPS)</div>
+<div style="margin-top:5px; font-weight:normal;">Registered under</div>
+<img src="Tnhsps Logo.png" alt="TNHSPS Logo" style="width:100px; margin-top:5px; display:block; margin-left:auto; margin-right:auto;">
+            <div style="margin-top:5px; white-space: nowrap; font-weight:bold;">(TNHSPS)</div>
       <div style="margin-top:5px; white-space: nowrap; font-weight:bold;"></div>
-      
-      <img src="Tnhsps Logo.png" alt="TNHSPS Logo" style="width:100px; margin-top:5px; display:block; margin-left:auto; margin-right:auto;">
-    <div style="margin-top:5px; font-weight:normal;">Registered under</div> </div>
+     </div>
 
       <div class="hero-text" style="margin-top:155px; text-align:center;">
       <span>Small</span> <span>acts</span> <span>of</span> <span>care</span><br>
@@ -618,8 +717,7 @@
           <span class="highlight-lightblue">Patient Care</span><br>
           Specialists
         </h1>
-
-        <a class="services-link" href="#key-features" style="display:inline-block; margin-top:12px; font-weight:700; color:var(--purple); text-decoration:none;">View Our Key Benefits →</a>
+<a class="services-link" href="#key-features" style="display:inline-block; margin-top:12px; font-weight:700; color:var(--purple); text-decoration:none;">View Our Key Benefits →</a>
 
         <div class="buttons">
           <a class="btn btn-wa" href="https://wa.me/+919791402955" target="_blank" rel="noopener noreferrer">WhatsApp us</a>
@@ -627,7 +725,7 @@
         </div>
       </div>
 
-      <div style="display:flex; align-items:flex-start; gap:30px;">
+      <div style="display:flex; align-items:flex-start; gap:30px;" class="ratebox">
         <div class="left-section"></div>
 
         <aside style="width:260px; padding:25px 20px; border-radius:20px; background:linear-gradient(180deg, #bdefff, #a8c7e6); text-align:center; box-shadow:0 12px 28px rgba(0,0,0,0.18);">
@@ -745,25 +843,31 @@
     <section class="care-packages-section" aria-labelledby="pricing-head">
     <h2 id="pricing-head" style="text-align:center; margin-bottom:18px; color:var(--purple)">Levels of Care & Support</h2>
     <div class="package-cards" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap">
-    <div class="radial-card-container essential" style="width:300px; background:#ffffff; padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.06)">
+    <div class="packagebox1">
+      <div class="radial-card-container-essential" style="width:300px; background:#ffffff; padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.06)">
     <div class="circle-content" style="width:130px; height:130px; border-radius:50%; margin:10px auto; background:linear-gradient(45deg,#ff9800,#ffc107); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800"><div style="text-align:center"><div style="font-size:12px">Essential care</div><div style="font-size:22px">2 Hr</div></div></div>
     <h4 style="color:var(--blue); text-align:center">Short-Term Support</h4>
     <ul style="list-style:none; padding:0; margin:6px 0 12px"><li style="padding:6px 0">Basic personal care</li><li style="padding:6px 0">Medication reminders</li><li style="padding:6px 0">Meal preparation assistance</li><li style="padding:6px 0">Light housekeeping</li></ul>
-    
-    <!-- Enquire button now includes data-package and enquire-btn class, script will open contact and prefill -->
     <a class="btn enquire-btn" href="#contact-us-page" data-package="Short-Term Support (Essential care — 2 Hr)" style="background:#ff9800; display:block; text-align:center; width:85%; margin:8px auto" rel="noopener noreferrer">Enquire Now</a>
-    </div>
-    <div class="radial-card-container daily" style="width:300px; background:#fff; padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.06)">
+  </div>  
+  </div>
+
+<div class="packagebox2">
+    <div class="radial-card-container-daily" style="width:300px; background:#fff; padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.06)">
     <div class="circle-content" style="width:130px; height:130px; border-radius:50%; margin:10px auto; background:linear-gradient(45deg,#673ab7,#9c27b0); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800"><div style="text-align:center"><div style="font-size:12px">Daily Care</div><div style="font-size:22px">10 Hr</div></div></div>
     <h4 style="color:var(--blue); text-align:center">Comprehensive Daytime Care</h4>
     <ul style="list-style:none; padding:0; margin:6px 0 12px"><li style="padding:6px 0">All Essential services</li><li style="padding:6px 0">Monitoring and guidance</li><li style="padding:6px 0">Mobility and exercise support</li><li style="padding:6px 0">Feeding support</li></ul>
     <a class="btn enquire-btn" href="#contact-us-page" data-package="Comprehensive Daytime Care (Daily Care — 10 Hr)" style="background:#673ab7; display:block; text-align:center; width:85%; margin:8px auto" rel="noopener noreferrer">Enquire Now</a>
-    </div>
-    <div class="radial-card-container premium" style="width:300px; background:#fff; padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.06)">
+  </div>  
+  </div>
+    
+  <div class="packagebox3">
+    <div class="radial-card-container-premium" style="width:300px; background:#fff; padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.06)">
     <div class="circle-content" style="width:130px; height:130px; border-radius:50%; margin:10px auto; background:linear-gradient(45deg,#f44336,#e91e63); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800"><div style="text-align:center"><div style="font-size:12px">Premium Care</div><div style="font-size:22px">10 Hr</div></div></div>
     <h4 style="color:var(--blue); text-align:center">Full-Time Live-in Care</h4>
     <ul style="list-style:none; padding:0; margin:6px 0 12px"><li style="padding:6px 0">Full personal hygiene care</li><li style="padding:6px 0">Advanced medical monitoring (if required)</li><li style="padding:6px 0">Diaper changing</li></ul>
     <a class="btn enquire-btn" href="#contact-us-page" data-package="Full-Time Live-in Care (Premium Care — 10 Hr)" style="background:#f44336; display:block; text-align:center; width:85%; margin:8px auto" rel="noopener noreferrer">Enquire Now</a>
+    </div>
     </div>
     </div>
     </section>
@@ -788,12 +892,14 @@
     </section>
 
     <!-- CAREERS SECTION -->
-    <section id="careers" class="about-us-section" aria-labelledby="careers-head" style="padding:40px 28px; margin:40px auto; max-width:1200px;">
+    <section id="careers" class="about-us-section" aria-labelledby="careers-head" style="padding:40px 28px; margin:40px auto;">
+      <div class="careersbox">
     <h2 id="careers-head"
     style="font-size:32px; color:var(--blue); margin:0 0 18px; font-weight:800; text-align:center;">Grow your career with us</h2>
     <p style="color:#555; margin:8px 0 22px; line-height:1.7; font-size:15px;">Build a meaningful career delivering compassionate home care. We provide training, reliable schedules, and a supportive environment so you can focus on what matters — caring for people.</p>
     <div style="display:grid; grid-template-columns: 1fr 420px; gap:28px; align-items:start;">
-     <!-- Left column: Benefits + Open Roles -->
+     </div>
+<!-- center column: Benefits + Open Roles -->
     <div>
     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:14px; margin-bottom:20px;">
     <div class="features-box" style="padding:16px; border-radius:12px;">
@@ -846,63 +952,13 @@
             Assist with personal care (bathing, dressing), mobility support, medication reminders, meal preparation,
             light housekeeping, and provide compassionate companionship.
           </p>
-        </div>
+          </div>
+    </section>
 
-        <!-- Right column: Apply form + Contact -->
-        <aside style="background:linear-gradient(180deg,#ffffff,#fbfdff); padding:20px; border-radius:12px; box-shadow:0 16px 40px rgba(2,6,23,0.06);">
-          <h3 style="margin:0 0 12px; color:var(--purple); font-size:18px;">Apply Now</h3>
 
-          <form id="careersForm"
-      action="https://formsubmit.co/ablifehealthcaretaker@gmail.com"
-      method="POST"
-      enctype="multipart/form-data"
-      style="display:grid; gap:10px;">
 
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_subject" value="New career application">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_next" value="https://www.ablifehealthcaretaker.com/thank-you.html">
-
-            <label style="font-weight:700; font-size:13px;">Full name<input name="name" type="text" required placeholder="Your full name" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
-
-            <label style="font-weight:700; font-size:13px;">Phone<input name="phone" type="tel" required placeholder="+91 9XXXXXXXXX" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
-
-            <label style="font-weight:700; font-size:13px;">Email<input name="email" type="email" required placeholder="you@example.com" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
-
-            <label style="font-weight:700; font-size:13px;">Position applying for
-              <select name="position" required style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);">
-                <option value="">Select a role</option>
-                <option>Geriatric Caregiver</option>
-                <option>Home Caretaker</option>
-                <option>Child Caregiver</option>
-                <option>Nursing Assistant</option>
-                <option>Special Needs Caregiver</option>
-                <option>Other</option>
-              </select>
-            </label>
-
-            <label style="font-weight:700; font-size:13px;">Preferred shift
-              <select name="shift" required style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);">
-                <option value="">Select a shift</option>
-                <option>Day</option>
-                <option>Night</option>
-                <option>24-hour / Live-in</option>
-                <option>Flexible / Part-time</option>
-              </select>
-            </label>
-
-            <label style="font-weight:700; font-size:13px;">Experience (years)<input name="experience" type="text" placeholder="e.g., 2 years" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
-
-            <label style="font-weight:700; font-size:13px;">Upload resume / ID (optional)
-              <input name="file" type="file" accept=".pdf,.doc,.docx,.jpg,.png" style="width:100%; padding:8px 6px; border-radius:8px; border:1px solid rgba(20,40,80,0.06);">
-            </label>
-
-            <label style="font-weight:700; font-size:13px;">Message / Notes<textarea name="message" placeholder="Tell us about your availability, strengths..." style="width:100%; padding:10px 12px; border-radius:10px; min-height:90px; border:1px solid rgba(20,40,80,0.08);"></textarea></label>
-
-            <button type="submit" style="width:100%; padding:12px; border-radius:12px; border:0; background:linear-gradient(90deg,var(--light-blue),var(--blue)); color:#fff; font-weight:800; cursor:pointer;">Submit Application</button>
-          </form>
-
-          <!-- RECRUITMENT FORM SECTION (Download Only) -->
+<!-- center column: Contact -->
+                 <!-- RECRUITMENT FORM SECTION (Download Only) -->
           <section id="recruitment-form" style="max-width:800px; margin:40px auto; padding:28px; border-radius:12px; background:#ffffff; box-shadow:0 12px 36px rgba(2,6,23,0.06);">
 
             <h2 style="color:var(--blue); margin:0 0 10px; font-size:28px; font-weight:800;">
@@ -927,9 +983,8 @@
                 File: ABlifehealth recruitment form.pdf
               </p>
             </div>
-          </section>
 
-          <div style="margin-top:14px; font-size:13px; color:#555;">
+          <div style="text-align:center;"margin-top:14px; font-size:13px; color:#555;">
             <strong>Contact HR:</strong><br>
             <a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700;">+9197914 02955</a><br>
             <a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700;">+917708750619</a><br>
@@ -937,7 +992,9 @@
           </div>
         </aside>
       </div>
-    </section>
+
+   </section>
+
 
     <section id="about-us" class="about-us-section" aria-labelledby="about-head">
       <h2 id="about-head">Get to Know Us</h2>
@@ -984,13 +1041,13 @@
             <div class="form-group"><label for="name">Your Name</label><input id="name" name="name" type="text" required placeholder="Full name"></div>
             <div class="form-group"><label for="email">Email address</label><input id="email" name="email" type="email" required placeholder="you@example.com"></div>
             <div class="form-group"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" required placeholder="+91 9791402955" value="+919791402955"></div>
-
             <div class="form-group"><label for="service">Service needed</label><select id="service" name="service" required><option value="">Select a Service</option><option>Geriatric Care</option><option>Child Caretaker</option><option>Nursing Service</option><option>Dental Care Visit Support</option><option>Other</option></select></div>
-
             <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required placeholder="Tell us about your requirements..."></textarea></div>
-
             <button type="submit">Submit Inquiry</button>
-            <noscript style="display:block; margin-top:10px; color:#c33">JavaScript is disabled — the form will still submit, but some UX features won't run.</noscript>
+          <div id="thankYouMessage" style="display: none; text-align: center; padding: 20px; background: #e8f5e9; color: #2e7d32;">
+  <h2>Thank You!</h2>
+  <p>Your details have been submitted successfully.</p>
+  <div>
           </form>
         </div>
 
@@ -1211,9 +1268,4 @@
 </body>
 
 </html>
-
-
-
-
-
 
