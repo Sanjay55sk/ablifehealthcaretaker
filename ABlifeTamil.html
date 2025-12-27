@@ -45,7 +45,7 @@
         /* Layout sections */
         .section { padding:50px 28px; display:flex; gap:40px; align-items:flex-start; max-width:1300px; margin:0 auto; }
         .intro-left { flex:1 1 600px; min-width:260px; }
-        .intro-right { flex:0 0 320px; min-width:260px; }
+        
         .section h1{ margin:0 0 16px; font-size:48px; font-weight:900; line-height:1.15; letter-spacing:-1px; }
         .highlight-blue{ color:var(--blue) }
         .highlight-lightblue{ color:var(--light-blue) }
@@ -158,14 +158,14 @@
         footer.simple-footer-section{ background:#111; color:#fff; padding:18px; text-align:center; margin-top:20px }
 
         /* Responsive */
-        @media (max-width:1000px){
+        @media (max-width:400px){
           .section{ flex-direction:column; padding:28px 18px }
           .intro-right{ order:2; width:100% }
           .intro-left{ order:1; width:100% }
           .features-box{ width:100% }
           .hero-text{ font-size:28px; right:6%; top:10% }
         }
-        @media (max-width:700px){
+        @media (max-width:600px){
           .service-detail-block{ flex-direction:column; text-align:center }
           .about-content-wrapper{ flex-direction:column-reverse; align-items:center }
           .about-image-column{ width:100% }
@@ -376,10 +376,14 @@
     /* =========================
    MOBILE RESPONSIVE FIXES
    ========================= */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
 
-  body {
-    overflow-x: hidden;
+  body {flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0%;
+    margin: 0px;
+    overflow: auto;
   }
 
    /* HEADER */
@@ -426,6 +430,65 @@
   .intro-left h1 {
     font-size: 30px;
     text-align: center;
+  }
+
+   .intro-right{
+    max-width: 300px;
+    padding: 0;
+    margin: 10px 20px;
+  }
+
+  .ratebox{
+    max-width: 300px;
+    padding: 0px;
+    margin: 0px 20px;
+  }
+
+  .value-proposition-block{ flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    margin: 0px;
+
+  }
+
+
+  .about-us-section{
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 10px;
+
+  }
+
+  .contact-us-page{
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 10px;
+
+  }
+
+  .contact-form-container{
+    max-width: 300px;
+    align-self: center;
+
+  }
+
+  .contact-info-block{
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    flex-wrap: wrap;
+    max-width: 300px;
+    font-size: 12px;
+
+  }
+
+  .logo-text{
+    flex-wrap: wrap;
+    align-self: center;
   }
 
   .buttons {
@@ -490,12 +553,21 @@
 
   /* CONTACT SECTION */
   .contact-grid {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     grid-template-columns: 1fr !important;
+    max-width: 300px;
   }
 
   /* MAP */
-  .map-placeholder {
+  .map-placeholder {display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-self: center;
     height: 220px;
+    max-width: 300px;
+    width: 350px;
   }
 
   /* FOOTER */
@@ -629,8 +701,8 @@
     alt="AB Life Health logo"
     style="height:60px; width:auto;"
   >
-  <span class="logo-text" style="font-size:1.1rem;">
-    ஏபி லைஃப் ஹெல்த் <br> கேர்டேக்கர்
+  <span class="logo-text" style="font: size 5px;">
+    ஏபி லைஃப் ஹெல்த் <br>கேர்டேக்கர்
   </span>
 </a>
 <button class="burger-btn" aria-label="Open menu">&#9776;</button>
@@ -699,7 +771,7 @@
             </div>
           </div>
 
-          <div style="display:flex; align-items:flex-start; gap:30px;">
+          <div style="display:flex; align-items:flex-start; gap:30px;" class="ratebox">
             <div class="left-section"></div>
 
             <aside style="width:260px; padding:25px 20px; border-radius:20px; background:linear-gradient(180deg, #bdefff, #a8c7e6); text-align:center; box-shadow:0 12px 28px rgba(0,0,0,0.18);">
@@ -879,7 +951,7 @@
     பரிவுள்ள வீட்டில் பராமரிப்பு சேவைகளை வழங்கி, அர்த்தமுள்ள தொழில்முனையை உருவாக்குங்கள். நாங்கள் பயிற்சி, நம்பகமான நேர நிரல்கள் மற்றும் ஆதரவு சூழலை வழங்குகிறோம், நீங்கள் முக்கியமானதை — மக்களுக்கு பராமரிப்பை கவனிக்க — கவனம் செலுத்தலாம்.
   </p>
 
-  <div style="display:grid; grid-template-columns: 1fr 420px; gap:28px; align-items:start;">
+  <div style="display:grid; grid-template-row: 1fr 420px; gap:28px; align-items:start;">
     <div>
       <!-- Benefits grid -->
       <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:14px; margin-bottom:20px;">
@@ -935,59 +1007,9 @@
       </p>
     </div>
 
-    <aside style="background:linear-gradient(180deg,#ffffff,#fbfdff); padding:20px; border-radius:12px; box-shadow:0 16px 40px rgba(2,6,23,0.06);">
-      <h3 style="margin:0 0 12px; color:var(--purple); font-size:18px;">இப்போவே விண்ணப்பிக்கவும்</h3>
 
-<form id="careersForm"
-      action="https://formsubmit.co/ablifehealthcaretaker@gmail.com"
-      method="POST"
-      enctype="multipart/form-data"
-      style="display:grid; gap:10px;">
-
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_subject" value="புதிய தொழில் விண்ணப்பம்">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_next" value="https://www.ablifehealthcaretaker.com/thank-you.html">
-
-        <label style="font-weight:700; font-size:13px;">முழுப் பெயர்<input name="name" type="text" required placeholder="உங்கள் முழுப் பெயர்" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
-
-        <label style="font-weight:700; font-size:13px;">தொலைபேசி<input name="phone" type="tel" required placeholder="+91 9XXXXXXXXX" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
-
-        <label style="font-weight:700; font-size:13px;">மின்னஞ்சல்<input name="email" type="email" required placeholder="you@example.com" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
-
-        <label style="font-weight:700; font-size:13px;">விண்ணப்பிக்கும் நிலை
-          <select name="position" required style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);">
-            <option value="">ஒரு வேலையைத் தேர்ந்தெடுக்கவும்</option>
-            <option>முதியோர் பராமரிப்பாளர்</option>
-            <option>வீட்டு பராமரிப்பாளர்</option>
-            <option>குழந்தை பராமரிப்பாளர்</option>
-            <option>நர்சிங் உதவியாளர்</option>
-            <option>பல் மருத்துவப் பராமரிப்பு வருகைக்கான ஆதரவு</option>
-            <option>மற்றவை</option>
-          </select>
-        </label>
-
-        <label style="font-weight:700; font-size:13px;">முன்னுரிமை நேரம்
-          <select name="shift" required style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);">
-            <option value="">ஒரு நேரத்தைத் தேர்ந்தெடுக்கவும்</option>
-            <option>பகல்</option>
-            <option>இரவு</option>
-            <option>24 மணி / வாழும்</option>
-            <option>நெகிழ்வான / பகுதி நேரம்</option>
-          </select>
-        </label>
-
-        <label style="font-weight:700; font-size:13px;">அனுபவம் (ஆண்டுகள்)<input name="experience" type="text" placeholder="எ.கா., 2 ஆண்டுகள்" style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(20,40,80,0.08);"></label>
-
-        <label style="font-weight:700; font-size:13px;">Resume / ID பதிவேற்றம் (விருப்பமானது)
-          <input name="file" type="file" accept=".pdf,.doc,.docx,.jpg,.png" style="width:100%; padding:8px 6px; border-radius:8px; border:1px solid rgba(20,40,80,0.06);">
-        </label>
-
-        <label style="font-weight:700; font-size:13px;">செய்தி / குறிப்புகள்<textarea name="message" placeholder="உங்கள் கிடைக்கும் நேரம் மற்றும் திறன்கள் பற்றி கூறுங்கள்..." style="width:100%; padding:10px 12px; border-radius:10px; min-height:90px; border:1px solid rgba(20,40,80,0.08);"></textarea></label>
-
-        <button type="submit" style="width:100%; padding:12px; border-radius:12px; border:0; background:linear-gradient(90deg,var(--light-blue),var(--blue)); color:#fff; font-weight:800; cursor:pointer;">விண்ணப்பிக்கவும்</button>
-      </form>
-     <!-- RECRUITMENT FORM SECTION (Download Only) -->
+</section>
+         <!-- RECRUITMENT FORM SECTION (Download Only) -->
 <section id="recruitment-form" style="max-width:800px; margin:40px auto; padding:28px; border-radius:12px; background:#ffffff; box-shadow:0 12px 36px rgba(2,6,23,0.06);">
 
   <h2 style="color:var(--blue); margin:0 0 10px; font-size:28px; font-weight:800;">
@@ -1012,10 +1034,7 @@
       File: ABlifehealth recruitment form.pdf
     </p>
   </div> 
-</section>
-
-
-      <div style="margin-top:14px; font-size:13px; color:#555;">
+<div style= "text-align:center; "margin-top:14px; font-size:13px; color:#555;">
         <strong>Contact HR:</strong><br>
         <a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700;">+9197914 02955</a><br>
         <a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700;">+917708750619</a><br>
@@ -1026,9 +1045,11 @@
 </section>
 
 
+      
+
 <!-- ABOUT US SECTION -->
 <section id="about-us" class="about-us-section" aria-labelledby="about-head">
-  <h2 id="about-head">எங்களைப் பற்றி தெரிந்து கொள்ளுங்கள்</h2>
+  <h2 id="about-head" style="font-size: 20px;">எங்களைப் பற்றி தெரிந்து கொள்ளுங்கள்</h2>
   <div class="about-content-wrapper">
     <div class="about-text-column">
       <p class="lead-about">AB Life Health Caretaker இல், ஒவ்வொருவரும் மதிப்புடன், பரிவுடன் பராமரிப்பு பெறுவதற்கு உரியவர்கள் என்று நாங்கள் நம்புகிறோம். எங்கள் பயிற்சி பெற்ற மற்றும் சான்றளிக்கப்பட்ட பராமரிப்பாளர்கள் முதியோர், நோயாளிகள் மற்றும் தினசரி உதவி தேவைப்படும் நபர்களை ஆதரிக்க தயார். எங்கள் குறிக்கோள் எளிதானது — உங்கள் குடும்பத்தாருக்கு வீடே பாதுகாப்பும் மகிழ்ச்சியும் கொண்டு வருவதே. தனிப்பட்ட பராமரிப்பு, மருந்து ஆதரவு, இயக்க உதவி மற்றும் உணர்ச்சி தோழமை உள்ளிட்ட சேவைகள் எங்கள் பராமரிப்பாளர்கள் வழங்குகிறார்கள்.</p>
@@ -1058,8 +1079,8 @@
 
 <!-- CONTACT US SECTION -->
 <section id="contact-us-page" class="contact-us-page" aria-labelledby="contact-head">
-  <h1 id="contact-head" style="text-align:center; margin-bottom:8px; color:var(--blue)">எங்கள் குழுவை தொடர்பு கொள்ளுங்கள்</h1>
-  <p style="text-align:center; color:#555; margin-top:0">எந்தவொரு விசாரணைகளுக்கும் எங்கள் குழு உதவ தயாராக உள்ளது</p>
+  <h1 id="contact-head" style="font-size: 20; text-align:center; margin-bottom:8px; color:var(--blue)">எங்கள் குழுவை தொடர்பு கொள்ள</h1>
+  <p style="text-align:center; color:#555; margin-top:0;">எந்தவொரு விசாரணைகளுக்கும் எங்கள் குழு உதவ தயாராக உள்ளது</p>
 
   <div class="contact-grid">
     <div class="contact-form-container" aria-labelledby="contact-form">
@@ -1248,8 +1269,3 @@
 
 </body>
 </html>
-
-
-
-
-
