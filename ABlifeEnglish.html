@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ABLifeHealth — Home & Patient Care</title>
   <meta name="description" content="ABLifeHealth — professional home care, geriatric and nursing services. 24/7 support, trained caregivers." />
+  <link rel="Icon" type="jpg" href="Domain-logo.JPG">
 
   <!-- Material Symbols Rounded -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
@@ -1025,51 +1026,58 @@ gap: 16px;
     </section>
 
     <section id="contact-us-page" class="contact-us-page" aria-labelledby="contact-head">
-      <h1 id="contact-head" style="text-align:center; margin-bottom:8px; color:var(--blue)">Contact Our Dedicated Team</h1>
-      <p style="text-align:center; color:#555; margin-top:0">Our Team is Here to Help You with Any Inquiries or Issues You May Have</p>
+  <h1 id="contact-head" style="font-size: 20; text-align:center; margin-bottom:8px; color:var(--blue)">Contact Our Dedicated Team</h1>
+  <p style="text-align:center; color:#555; margin-top:0;">Our Team is Here to Help You with Any Inquiries or Issues You May Have</p>
 
-      <div class="contact-grid">
-        <div class="contact-form-container" aria-labelledby="contact-form">
-          <h3 id="contact-form" style="margin-top:0; color:var(--purple)">Send Us a Message</h3>
+  <div class="contact-grid">
+    <div class="contact-form-container" aria-labelledby="contact-form">
+      <h3 id="contact-form" style="margin-top:0; color:var(--purple)">Send Us a Message</h3>
 
-          <form id="contactForm" action="https://formsubmit.co/ablifehealthcaretaker@gmail.com" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="New contact inquiry from website">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://ablifehealth.com/thank-you.html">
+      <form id="contactForm" action="https://formsubmit.co/ablifehealthcaretaker@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="நிறுவனம் இணையதளத்தில் புதிய விசாரணை">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://ablifehealth.com/thank-you.html">
 
-            <div class="form-group"><label for="name">Your Name</label><input id="name" name="name" type="text" required placeholder="Full name"></div>
-            <div class="form-group"><label for="email">Email address</label><input id="email" name="email" type="email" required placeholder="you@example.com"></div>
-            <div class="form-group"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" required placeholder="+91 9791402955" value="+919791402955"></div>
-            <div class="form-group"><label for="service">Service needed</label><select id="service" name="service" required><option value="">Select a Service</option><option>Geriatric Care</option><option>Child Caretaker</option><option>Nursing Service</option><option>Dental Care Visit Support</option><option>Other</option></select></div>
-            <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required placeholder="Tell us about your requirements..."></textarea></div>
-            <button type="submit">Submit Inquiry</button>
-          <div id="thankYouMessage" style="display: none; text-align: center; padding: 20px; background: #e8f5e9; color: #2e7d32;">
-  <h2>Thank You!</h2>
-  <p>Your details have been submitted successfully.</p>
-  <div>
-          </form>
-        </div>
+        <div class="form-group"><label for="name">Your Name</label><input id="name" name="name" type="text" required placeholder="Full name"></div>
+        <div class="form-group"><label for="email">Email address</label><input id="email" name="email" type="email" required placeholder="you@example.com"></div>
+        <div class="form-group"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" required placeholder="+91 9791402955" value="+919791402955"></div>
 
-        <div class="info-map-container" aria-hidden="false">
-          <div class="contact-info-block">
-            <div class="contact-item"><span class="material-symbols-rounded" aria-hidden="true">phone_in_talk</span><div><strong>Call Us</strong><br><a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700">+919791402955</a><br><a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700">+917708750619</a></div></div>
-            <div class="contact-item"><span class="material-symbols-rounded" aria-hidden="true">mail</span><div><strong>Email</strong><br><a href="mailto:ablifehealthcaretaker@gmail.com" style="color:var(--blue); text-decoration:none; font-weight:700">ablifehealthcaretaker@gmail.com</a></div></div>
-            <div class="contact-item"><span class="material-symbols-rounded" aria-hidden="true">pin_drop</span><div><p style="margin:0"><strong>Office</strong><br>No: 13 Jayalakshmi Nagar, Arani, Tiruvannamalai 632301.<br><strong>Office</strong><br>bagayam vellore.</p></div></div>
+        <div class="form-group"><label for="service">Service needed</label><select id="service" name="service" required>
+          <option value="">Select a Service</option>
+          <option>Geriatric Care</option>
+          <option>Child Caretaker</option>
+          <option>Nursing Service</option>
+          <option>Dental Care Visit Support</option>
+          <option>Other</option>
+        </select></div>
+
+        <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required placeholder="Tell us about your requirements..."></textarea></div>
+
+        <button type="submit">Submit Inquiry</button>
+        <noscript style="display:block; margin-top:10px; color:#c33">JavaScript is disabled — the form will still submit, but some UX features won't run.</noscript>
+      </form>
+    </div>
+ <div class="info-map-container" aria-hidden="false">
+              <div class="contact-info-block">
+                <div class="contact-item"><span class="material-symbols-rounded">phone_in_talk</span><div><strong>Call Us</strong><br><a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700">+919791402955</a><br><a href="tel:+919791402955" style="color:var(--blue); text-decoration:none; font-weight:700">+917708750619</a></div></div>
+                <div class="contact-item"><span class="material-symbols-rounded">mail</span><div><strong>Email</strong><br><a href="mailto:ablifehealthcaretaker@gmail.com" style="color:var(--blue); text-decoration:none; font-weight:700">ablifehealthcaretaker@gmail.com</a></div></div>
+                <div class="contact-item"><span class="material-symbols-rounded">pin_drop</span><div><p style="margin:0"><strong>Office</strong><br>No: 13 Jayalakshmi Nagar, Arani, Tiruvannamalai 632301.<br><strong>Office</strong><br>bagayam vellore.</p></div></div>
+              </div>
+
+              <div class="map-placeholder"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3892.5900193368393!2d79.27984837494076!3d12.674864721314858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad2953d0055785%3A0xb5ca153cd70e82bf!2s13%2F29%2C%20Jayalakshmi%20Nagar%20Rd%2C%20Arani%2C%20Tamil%20Nadu%20632301!5e0!3m2!1sen!2sin!4v1765265901738!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
+              <h4 style="margin:10px 0 8px; color:var(--purple)">Follow Us</h4>
+              <div class="social-links" style="display:flex; gap:12px">
+                <a href="https://www.facebook.com/share/1BzMVTaow4/" target="_blank" aria-label="Facebook" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden; background:#fff;"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" style="width:26px; filter: invert(32%) sepia(93%) saturate(2279%) hue-rotate(203deg) brightness(96%) contrast(97%);"></a>
+                <a href="https://www.instagram.com/ablifehealthcaretaker?igsh=NWoyMGxheDdpYXZ6" target="_blank" aria-label="Instagram" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden;"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" style="width:28px; height:28px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));"></a>
+                <a href="https://wa.me/+919791402955" target="_blank" aria-label="WhatsApp" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden;"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384055.png" style="width:32px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));"></a>
+                <a href="#" target="_blank" aria-label="YouTube" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden;"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" style="width:32px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));"></a>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div class="map-placeholder"><iframe title="Office location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3892.5900193368393!2d79.27984837494076!3d12.674864721314858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad2953d0055785%3A0xb5ca153cd70e82bf!2s13%2F29%2C%20Jayalakshmi%20Nagar%20Rd%2C%20Arani%2C%20Tamil%20Nadu%20632301!5e0!3m2!1sen!2sin!4v1765265901738!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-
-          <h4 style="margin:10px 0 8px; color:var(--purple)">Follow Us</h4>
-          <div class="social-links" style="display:flex; gap:12px">
-            <a href="https://www.facebook.com/share/1BzMVTaow4/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden; background:#fff;"><img alt="Facebook" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" style="width:26px; filter: invert(32%) sepia(93%) saturate(2279%) hue-rotate(203deg) brightness(96%) contrast(97%);"></a>
-            <a href="https://www.instagram.com/ab_lifehealthcaretaker?igsh=NWoyMGxheDdpYXZ6" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden;"><img alt="Instagram" src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" style="width:28px; height:28px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));"></a>
-            <a href="https://wa.me/+919791402955" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden;"><img alt="WhatsApp" src="https://cdn-icons-png.flaticon.com/512/1384/1384055.png" style="width:32px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));"></a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; overflow:hidden;"><img alt="YouTube" src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" style="width:32px; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));"></a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer" role="contentinfo" style="background:linear-gradient(135deg, #0069ff 0%, #1e3a8a 100%); color:#fff; padding:50px 20px 30px; text-align:center; position:relative;">
